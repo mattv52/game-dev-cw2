@@ -17066,6 +17066,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1007582982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8290077176526840705, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+  m_PrefabInstance: {fileID: 8290077175923268743}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1574718942
 GameObject:
   m_ObjectHideFlags: 0
@@ -18994,3 +19005,88 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &8290077175923268743
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8290077175662999337, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: speech_bubble_text
+      value: 
+      objectReference: {fileID: 1007582982}
+    - target: {fileID: 8290077175662999337, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: speeches.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999337, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: speeches.Array.data[0]
+      value: Speech 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999337, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: speeches.Array.data[1]
+      value: Speech 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999337, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: speeches.Array.data[2]
+      value: Speech 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999338, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077175662999341, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_Name
+      value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077176526840705, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_text
+      value: Speech
+      objectReference: {fileID: 0}
+    - target: {fileID: 8290077176526840705, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}

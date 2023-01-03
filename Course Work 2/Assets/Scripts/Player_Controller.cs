@@ -26,7 +26,7 @@ public class Player_Controller : MonoBehaviour
     {
         if (movementInput != Vector2.zero)
         {
-            print(movementInput);
+            // print(movementInput);
             bool success = TryMove(movementInput);
 
             if (!success)
