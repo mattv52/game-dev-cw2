@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class Player_Controller : MonoBehaviour
 {
 
-    private float moveSpeed = 1.0f;
+    public float moveSpeed = 1.0f;
     public float collisionOffset = 0.05f;
     public ContactFilter2D movementFilter;
 
@@ -19,7 +19,7 @@ public class Player_Controller : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        rb = GetComponent<Rigidbody2D>();
     }
 
     private void FixedUpdate()
