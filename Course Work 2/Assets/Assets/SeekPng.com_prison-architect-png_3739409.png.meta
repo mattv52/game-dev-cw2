@@ -113,7 +113,7 @@ TextureImporter:
         width: 35
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +134,7 @@ TextureImporter:
         width: 36
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
         width: 35
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
         width: 35
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,6 +184,90 @@ TextureImporter:
       bones: []
       spriteID: d78df73fb5970e04ea479355000bcf32
       internalID: -767747676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_4
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 676
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 216fe247c9f4dd9cfb3e252160c16f4b
+      internalID: 708768715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_5
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 1126
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1ef32df1f320462086af0a1e3eb703b
+      internalID: 1341748470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_7
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1088
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96430dd7127350f73b8309edb63a4e43
+      internalID: -448285952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_8
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1051
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f77177cfd329ac39f85200896ce6c99d
+      internalID: -2032863773
       vertices: []
       indices: 
       edges: []
@@ -199,8 +283,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      SeekPng.com_prison-architect-png_3739409_5: 1341748470
+      SeekPng.com_prison-architect-png_3739409_7: -448285952
       SeekPng.com_prison-architect-png_3739409_1: 879004409
+      SeekPng.com_prison-architect-png_3739409_4: 708768715
+      SeekPng.com_prison-architect-png_3739409_8: -2032863773
       SeekPng.com_prison-architect-png_3739409_0: 205614453
+      SeekPng.com_prison-architect-png_3739409_6: 1293215634
       SeekPng.com_prison-architect-png_3739409_3: -767747676
       SeekPng.com_prison-architect-png_3739409_2: 1596685276
   spritePackingTag: 
