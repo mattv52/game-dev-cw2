@@ -4,5 +4,7 @@ using UnityEngine;
 
 public class NPC_Core : NPC_Basic
 {
-
+    // Kill
+    // Talk
+    // Give Item
 }
