@@ -20853,6 +20853,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 8290077176498983561, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -448285952, guid: f775706aa3edb734980ed2bee4fc9afd, type: 3}
     - target: {fileID: 8290077176526840705, guid: bacf4a24343313d4e816fd8025c8b5ec, type: 3}
       propertyPath: m_text
       value: Speech

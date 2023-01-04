@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class NPC_Core : NPC_Basic
 {
-
+    public void Talk()
+    {
+        
+    }
+    // Talk
+    // Give Item
 }
