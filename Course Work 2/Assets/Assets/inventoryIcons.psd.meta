@@ -108,12 +108,12 @@ TextureImporter:
       name: inventoryIcons_0
       rect:
         serializedVersion: 2
-        x: 71
-        y: 264
-        width: 452
-        height: 425
+        x: 651
+        y: 434
+        width: 161
+        height: 255
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,6 +121,27 @@ TextureImporter:
       bones: []
       spriteID: b83bae33b74e4144090a5a2c426da3d3
       internalID: 1668182080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: inventoryIcons_2
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 264
+        width: 452
+        height: 425
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea27512a7f2239078af362a80e7201b3
+      internalID: -1253209439
       vertices: []
       indices: 
       edges: []
@@ -136,6 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      inventoryIcons_2: -1253209439
+      inventoryIcons_1: -2051369890
       inventoryIcons_0: 1668182080
   spritePackingTag: 
   pSDRemoveMatte: 0

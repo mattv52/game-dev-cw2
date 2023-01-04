@@ -35,4 +35,8 @@ public class NPC_Basic : MonoBehaviour
 
     }
 
+    public void Die()
+    {
+    	print("Dead");
+    }
 }
