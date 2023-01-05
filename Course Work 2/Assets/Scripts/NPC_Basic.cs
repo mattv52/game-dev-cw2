@@ -9,6 +9,8 @@ public class NPC_Basic : MonoBehaviour
     public GameObject speech_bubble;
     public TMP_Text speech_bubble_text;
     public SpriteRenderer background;
+    public float paddx = 0f;
+    public float paddy = 0f;
 
     public string[] speeches;
 	private System.Random rnd = new System.Random();
@@ -23,15 +25,16 @@ public class NPC_Basic : MonoBehaviour
     {
         if (speeches.Length > 0) 
         {
+            speech_bubble.SetActive(true);
             int text  = rnd.Next(0, speeches.Length);
             speech_bubble_text.SetText(speeches[text]);
-            speech_bubble_text.ForceMeshUpdate();
 
+            speech_bubble_text.ForceMeshUpdate();
             Vector2 text_size = speech_bubble_text.GetRenderedValues(false);
-            Vector2 padding = new Vector2(4f, 2f);
+        	print(text_size);
+            Vector2 padding = new Vector2(paddx, paddy);
             background.size = text_size + padding;
 
-            speech_bubble.SetActive(true);
         }
 
     }
