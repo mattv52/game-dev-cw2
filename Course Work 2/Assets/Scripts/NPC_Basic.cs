@@ -31,7 +31,6 @@ public class NPC_Basic : MonoBehaviour
 
             speech_bubble_text.ForceMeshUpdate();
             Vector2 text_size = speech_bubble_text.GetRenderedValues(false);
-        	print(text_size);
             Vector2 padding = new Vector2(paddx, paddy);
             background.size = text_size + padding;
 
