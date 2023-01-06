@@ -15,12 +15,6 @@ public class NPC_Basic : MonoBehaviour
     public string[] speeches;
 	private System.Random rnd = new System.Random();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        speech_bubble.SetActive(false);
-    }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (speeches.Length > 0) 
