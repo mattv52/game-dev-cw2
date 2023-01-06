@@ -272,6 +272,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_6
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 939
+        width: 28
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2ec3296a4511148b9c4b7d55a27e3a
+      internalID: 1293215634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_9
+      rect:
+        serializedVersion: 2
+        x: 978
+        y: 190
+        width: 31
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8850c8c49aa55b84bbe70862c3a63b0e
+      internalID: 138178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SeekPng.com_prison-architect-png_3739409_10
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 413
+        width: 31
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99fca64eb17297046bde67ab0ec94d36
+      internalID: -94071216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -287,10 +350,12 @@ TextureImporter:
       SeekPng.com_prison-architect-png_3739409_7: -448285952
       SeekPng.com_prison-architect-png_3739409_1: 879004409
       SeekPng.com_prison-architect-png_3739409_4: 708768715
+      SeekPng.com_prison-architect-png_3739409_9: 138178
       SeekPng.com_prison-architect-png_3739409_8: -2032863773
       SeekPng.com_prison-architect-png_3739409_0: 205614453
       SeekPng.com_prison-architect-png_3739409_6: 1293215634
       SeekPng.com_prison-architect-png_3739409_3: -767747676
+      SeekPng.com_prison-architect-png_3739409_10: -94071216
       SeekPng.com_prison-architect-png_3739409_2: 1596685276
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Pie
+  - Cigaret
+  - Note
+  - Shive
+  - Sandwich
+  - Pizza
   layers:
   - Default
   - TransparentFX
