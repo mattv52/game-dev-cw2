@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Load2 : MonoBehaviour
+public class LoadNight : MonoBehaviour
 {
     private GameManager gm;
 

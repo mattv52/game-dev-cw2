@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Load3 : MonoBehaviour
+public class LoadMorning : MonoBehaviour
 {
     private GameManager gm;
 
-    void Awake()
+    void Start()
     {
         gm = GameManager.Instance;
-        
+
+
     }
 }
