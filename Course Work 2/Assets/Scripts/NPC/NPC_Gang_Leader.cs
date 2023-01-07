@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC_Cook : MonoBehaviour
+public class NPC_Gang_Leader : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public GameObject speech_bubble;
@@ -11,15 +11,12 @@ public class NPC_Cook : MonoBehaviour
     public SpriteRenderer background;
     public float paddx = 0f;
     public float paddy = 0f;
-    public GameObject accept_button;
     public GameObject attack_button;
     public GameObject kill_button;
     public Inventory player_inventory;
-    public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Could realy use a cigie",
-        "Thanks man", "Back off", "This is a wierd interaction"};
+    private string[] speeches = {"Buzz off<br>You get me something for luch<br>if you want to talk", "Think youll get away with this"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -69,42 +66,10 @@ public class NPC_Cook : MonoBehaviour
 
     public void Attack()
     {
-        if (text == 1)
-        {
-            text = 3;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(attack_button);
-        }
-        else
-        {
-
-            text = 2;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(accept_button);
-            Destroy(attack_button);
-        }
-    }
-
-    public void Agree() 
-    {
-        foreach (GameObject slot in player_inventory.slots)
-        {
-            if (slot.gameObject.transform.childCount > 0)
-            {
-                GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
-                if (item.tag == item_wanted)
-                {
-                    GameObject.Destroy(item.gameObject);
-
-                    text = 1;
-                    speech_bubble_text.SetText(speeches[text]);
-                    updateTextBubble();
-                    Destroy(accept_button);
-                }
-            }
-        }
+        text = 1;
+        speech_bubble_text.SetText(speeches[text]);
+        updateTextBubble();
+        Destroy(attack_button);
     }
 
     private void updateTextBubble()

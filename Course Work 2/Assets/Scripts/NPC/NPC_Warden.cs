@@ -5,6 +5,7 @@ using TMPro;
 
 public class NPC_Warden : MonoBehaviour
 {
+    public SpriteRenderer sprite;
     public GameObject speech_bubble;
     public TMP_Text speech_bubble_text;
     public SpriteRenderer background;
@@ -12,8 +13,10 @@ public class NPC_Warden : MonoBehaviour
     public float paddy = 0f;
     public GameObject accept_button;
     public GameObject attack_button;
+    public GameObject kill_button;
     public Inventory player_inventory;
     public string item_wanted;
+    public GameObject blood_splater;
 
     private string[] speeches = {"What do you wnat?<br>And shouldn't i have a door",
         "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
@@ -31,10 +34,22 @@ public class NPC_Warden : MonoBehaviour
         if (speeches.Length > 0)
         {
             speech_bubble.SetActive(true);
+            kill_button.SetActive(false);
             print(text);
             speech_bubble_text.SetText(speeches[text]);
             updateTextBubble();
 
+            foreach (GameObject slot in player_inventory.slots)
+            {
+                if (slot.gameObject.transform.childCount > 0)
+                {
+                    GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
+                    if (item.tag == "Shive")
+                    {
+                        kill_button.SetActive(true);
+                    }
+                }
+            }
         }
     }
 
@@ -44,7 +59,15 @@ public class NPC_Warden : MonoBehaviour
 
     }
 
-    public void Die()
+    public void Kill()
+    {
+        Destroy(speech_bubble);
+        sprite.color = new Color(1, 0, 0, 1);
+        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+        Instantiate(blood_splater, pos, Quaternion.identity);
+    }
+
+    public void Attack()
     {
         if (text == 1)
         {
