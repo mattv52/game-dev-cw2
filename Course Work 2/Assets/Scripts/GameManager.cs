@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     // reference the variables anywhere as:
         // GameManager.Instance.x
 
+    public bool eaten = false;
+
     void Awake()
     {
         if (Instance != null)
