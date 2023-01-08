@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
         // GameManager.Instance.x
 
     public string job;
-    public bool eaten = false;
 
     void Awake()
     {

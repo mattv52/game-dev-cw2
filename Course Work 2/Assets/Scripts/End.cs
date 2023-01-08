@@ -13,11 +13,7 @@ public class End : MonoBehaviour
 
         // Big if tree to determine how to end the game.
         // These will need to be ordered in order of priority in the case that multiple are completed
-        if (gm.eaten == false)
-        {
-            // Die of hunger
-        }
-        else if (true)
+        if (true)
         {
             // Something else
         }

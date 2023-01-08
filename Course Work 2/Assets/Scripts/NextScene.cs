@@ -10,8 +10,6 @@ public class NextScene : MonoBehaviour
     public GameObject interactive; 
     public string next_scene;
 
-    private bool eating;
-
     private GameManager gm;
 
     void Start()
@@ -29,21 +27,10 @@ public class NextScene : MonoBehaviour
         interactive.SetActive(false);
 
     }
-    public void eat(bool eaten)
+    public void eat()
     {
-        string text = $"will progress time to {next_scene}.<br>Are you sure you want to continue?";
-        // print(ConfirmPanel.transform.GetChild(0));
-        if (eaten)
-        {
-            eating = true;
-            text = "Eating this now "+text;
-        }
-        else
-        {
-            eating = false;
-            text = "Saving this for later "+text;
-        }
-            
+        string text = $"Eating this now will progress time to {next_scene}.<br>Are you sure you want to continue?";
+
         ConfirmPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = text;
         ConfirmPanel.SetActive(true);
     }
@@ -55,8 +42,6 @@ public class NextScene : MonoBehaviour
 
     public void next()
     {
-        if (gm.eaten == false)
-            gm.eaten = eating;
         SceneManager.LoadScene(next_scene);
     }
 
