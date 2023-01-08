@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC_Informant : MonoBehaviour
+public class NPC_Cell_Mate_2 : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public GameObject speech_bubble;
@@ -11,15 +11,15 @@ public class NPC_Informant : MonoBehaviour
     public SpriteRenderer background;
     public float paddx = 0f;
     public float paddy = 0f;
-    public GameObject accept_button;
+    public GameObject guard_button;
     public GameObject attack_button;
     public GameObject kill_button;
+
+
     public Inventory player_inventory;
-    public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Might be able to help you with thet note for a cigie",
-        "Saw that big guy outside<br>hanging round your cell last night", "Oww, ok, ill tell you<br>Saw that big guy outside hanging<br>round your cell last night", "Why would you do this"};
+    private string[] speeches = {"Hi", "Hey i could distact the guard if that helps you", "Leave me alone", "Why"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -27,6 +27,21 @@ public class NPC_Informant : MonoBehaviour
     void Start()
     {
         speech_bubble.SetActive(false);
+        if (GameState.attack_cellmate)
+        {
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            text = 2;
+            Destroy(guard_button);
+        }
+        if (GameState.kill_cellmate)
+        {
+            sprite.color = new Color(1f, 0, 0, 1);
+            Destroy(speech_bubble);
+        }
+        if (GameState.cell_Mate_Trade_Shive)
+        {
+            text = 1;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -70,6 +85,7 @@ public class NPC_Informant : MonoBehaviour
 
     public void Attack()
     {
+        sprite.color = new Color(0.5f, 0, 0, 1);
         if (text == 1)
         {
             text = 3;
@@ -83,29 +99,13 @@ public class NPC_Informant : MonoBehaviour
             text = 2;
             speech_bubble_text.SetText(speeches[text]);
             updateTextBubble();
-            Destroy(accept_button);
             Destroy(attack_button);
         }
     }
 
     public void Agree() 
     {
-        foreach (GameObject slot in player_inventory.slots)
-        {
-            if (slot.gameObject.transform.childCount > 0)
-            {
-                GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
-                if (item.tag == item_wanted)
-                {
-                    GameObject.Destroy(item.gameObject);
 
-                    text = 1;
-                    speech_bubble_text.SetText(speeches[text]);
-                    updateTextBubble();
-                    Destroy(accept_button);
-                }
-            }
-        }
     }
 
     private void updateTextBubble()

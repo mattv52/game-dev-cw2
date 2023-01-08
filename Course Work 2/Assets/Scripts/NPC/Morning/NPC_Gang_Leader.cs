@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC_Cell_Mate : MonoBehaviour
+public class NPC_Gang_Leader : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public GameObject speech_bubble;
@@ -11,16 +11,12 @@ public class NPC_Cell_Mate : MonoBehaviour
     public SpriteRenderer background;
     public float paddx = 0f;
     public float paddy = 0f;
-    public GameObject shiv_item;
-    public GameObject accept_button;
     public GameObject attack_button;
     public GameObject kill_button;
     public Inventory player_inventory;
-    public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hey, ill give you my shank<br>if you give me your breakfast",
-        "Thanks man", "Piss off", "Why would you do this"};
+    private string[] speeches = {"Buzz off<br>You get me something for luch<br>if you want to talk", "Think youll get away with this"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -52,7 +48,6 @@ public class NPC_Cell_Mate : MonoBehaviour
                 }
             }
         }
-
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -63,6 +58,7 @@ public class NPC_Cell_Mate : MonoBehaviour
 
     public void Kill()
     {
+        GameState.kill_gang_leader = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -71,49 +67,11 @@ public class NPC_Cell_Mate : MonoBehaviour
 
     public void Attack()
     {
-        sprite.color = new Color(0.5f, 0, 0, 1);
-        if (text == 1)
-        {
-            text = 3;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(attack_button);
-        }
-        else
-        {
-
-            text = 2;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(accept_button);
-            Destroy(attack_button);
-
-            Vector2 npcPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
-            Instantiate(shiv_item, npcPos, Quaternion.identity);
-        }
-    }
-
-    public void Agree() 
-    {
-        foreach (GameObject slot in player_inventory.slots)
-        {
-            if (slot.gameObject.transform.childCount > 0)
-            {
-                GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
-                if (item.tag == item_wanted)
-                {
-                    GameObject.Destroy(item.gameObject);
-
-                    text = 1;
-                    speech_bubble_text.SetText(speeches[text]);
-                    updateTextBubble();
-                    Destroy(accept_button);
-
-                    Vector2 npcPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
-                    Instantiate(shiv_item, npcPos, Quaternion.identity);
-                }
-            }
-        }
+        GameState.attack_gang_leader = true;
+        text = 1;
+        speech_bubble_text.SetText(speeches[text]);
+        updateTextBubble();
+        Destroy(attack_button);
     }
 
     private void updateTextBubble()

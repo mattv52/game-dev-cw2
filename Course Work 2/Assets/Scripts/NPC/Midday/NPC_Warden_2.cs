@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC_Guard : MonoBehaviour
+public class NPC_Warden_2 : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public GameObject speech_bubble;
@@ -18,8 +18,8 @@ public class NPC_Guard : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Man i need a smoke",
-        "apreciate it", "*send player to warden*", "*send player to warden*"};
+    private string[] speeches = {"What do you wnat?<br>And shouldn't i have a door",
+        "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
