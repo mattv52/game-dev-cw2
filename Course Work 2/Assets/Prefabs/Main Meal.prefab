@@ -124,7 +124,7 @@ MonoBehaviour:
       - m_Target: {fileID: 2166991668470284166}
         m_TargetAssemblyTypeName: NextScene, Assembly-CSharp
         m_MethodName: eat
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
