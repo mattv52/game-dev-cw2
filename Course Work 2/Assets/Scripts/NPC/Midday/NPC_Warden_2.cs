@@ -26,6 +26,7 @@ public class NPC_Warden_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
     }
 

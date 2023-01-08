@@ -16,32 +16,39 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     public GameObject kill_button;
 
 
-    public Inventory player_inventory;
+    private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hi", "Hey i could distact the guard if that helps you", "Leave me alone", "Why"};
+    private string[] speeches = {"Hi", "Hey i could distact<br>the guard if that helps you", "Leave me alone", "Why", "Ill keep him busy<br>this afternoon"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+
         speech_bubble.SetActive(false);
-        if (GameState.attack_cellmate)
-        {
-            sprite.color = new Color(0.5f, 0, 0, 1);
-            text = 2;
-            Destroy(guard_button);
-        }
         if (GameState.kill_cellmate)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        if (GameState.cell_Mate_Trade_Shive)
+        else if (GameState.attack_cellmate)
+        {
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            text = 2;
+            Destroy(guard_button);
+        }
+        else if (GameState.cell_Mate_Trade_Shive)
         {
             text = 1;
         }
+        else
+        {
+            Destroy(guard_button);
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -77,6 +84,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Kill()
     {
+        GameState.kill_cellmate = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -85,6 +93,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Attack()
     {
+        GameState.attack_cellmate = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         if (text == 1)
         {
@@ -105,11 +114,15 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Agree() 
     {
-
+        text = 4;
+        GameState.cell_Mate_Distract_Guard = true;
+        updateTextBubble();
+        Destroy(guard_button);
     }
 
     private void updateTextBubble()
     {
+        speech_bubble_text.SetText(speeches[text]);
         speech_bubble_text.ForceMeshUpdate();
         Vector2 text_size = speech_bubble_text.GetRenderedValues(false);
         Vector2 padding = new Vector2(paddx, paddy);

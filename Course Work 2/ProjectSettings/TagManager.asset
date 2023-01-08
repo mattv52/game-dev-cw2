@@ -11,6 +11,8 @@ TagManager:
   - Shive
   - Sandwich
   - Pizza
+  - Food
+  - Pliers
   layers:
   - Default
   - TransparentFX

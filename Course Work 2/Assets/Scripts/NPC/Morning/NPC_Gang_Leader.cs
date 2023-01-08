@@ -13,10 +13,11 @@ public class NPC_Gang_Leader : MonoBehaviour
     public float paddy = 0f;
     public GameObject attack_button;
     public GameObject kill_button;
+    public GameObject accept_button;
     public Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Buzz off<br>You get me something for luch<br>if you want to talk", "Think youll get away with this"};
+    private string[] speeches = {"You want me to protect you<br>ok<br>But i need something from you", "Think youll get away with this", "Get me them pliers from the<br>laundry room<br>then we can talk"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -72,6 +73,16 @@ public class NPC_Gang_Leader : MonoBehaviour
         speech_bubble_text.SetText(speeches[text]);
         updateTextBubble();
         Destroy(attack_button);
+        Destroy(accept_button);
+    }
+
+    public void Agree()
+    {
+        GameState.accept_gang_job = true;
+        text = 2;
+        speech_bubble_text.SetText(speeches[text]);
+        updateTextBubble();
+        Destroy(accept_button);
     }
 
     private void updateTextBubble()

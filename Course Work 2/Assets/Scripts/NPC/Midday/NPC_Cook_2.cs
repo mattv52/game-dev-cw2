@@ -11,22 +11,38 @@ public class NPC_Cook_2 : MonoBehaviour
     public SpriteRenderer background;
     public float paddx = 0f;
     public float paddy = 0f;
-    public GameObject accept_button;
     public GameObject attack_button;
     public GameObject kill_button;
-    public Inventory player_inventory;
-    public string item_wanted;
+
+    private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Could realy use a cigie",
-        "Thanks man", "Back off", "This is a wierd interaction"};
+    private string[] speeches = {"Just sit there and learn from me<br>and dont take my knifes.<br>Im watching you", "why are you here?", "Needed this break", "Oww<br>shouldnt have let you in this kitchen",
+    "Ow<br>thaught you were cool"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
+        if (GameState.kill_cook)
+        {
+            sprite.color = new Color(1f, 0, 0, 1);
+            Destroy(speech_bubble);
+        }
+        else if (GameState.attack_cook)
+        {
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            text = 1;
+        }
+        else if (GameState.give_Cigaret_To_Cook)
+        {
+            text = 2;
+            transform.position = new Vector3(33f, -10.15f, -1.0f);
+        }
+        
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -38,6 +54,8 @@ public class NPC_Cook_2 : MonoBehaviour
             print(text);
             speech_bubble_text.SetText(speeches[text]);
             updateTextBubble();
+
+
 
             foreach (GameObject slot in player_inventory.slots)
             {
@@ -61,54 +79,30 @@ public class NPC_Cook_2 : MonoBehaviour
 
     public void Kill()
     {
+        GameState.kill_cook = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
-        Instantiate(blood_splater, pos, Quaternion.identity);
     }
 
     public void Attack()
     {
-        if (text == 1)
+        GameState.attack_cook = true;
+        if (GameState.give_Cigaret_To_Cook)
         {
-            text = 3;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(attack_button);
+            text = 4;
         }
         else
         {
-
-            text = 2;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(accept_button);
-            Destroy(attack_button);
+            text = 3;
         }
-    }
+        sprite.color = new Color(0.5f, 0, 0, 1);
+        updateTextBubble();
 
-    public void Agree() 
-    {
-        foreach (GameObject slot in player_inventory.slots)
-        {
-            if (slot.gameObject.transform.childCount > 0)
-            {
-                GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
-                if (item.tag == item_wanted)
-                {
-                    GameObject.Destroy(item.gameObject);
-
-                    text = 1;
-                    speech_bubble_text.SetText(speeches[text]);
-                    updateTextBubble();
-                    Destroy(accept_button);
-                }
-            }
-        }
     }
 
     private void updateTextBubble()
     {
+        speech_bubble_text.SetText(speeches[text]);
         speech_bubble_text.ForceMeshUpdate();
         Vector2 text_size = speech_bubble_text.GetRenderedValues(false);
         Vector2 padding = new Vector2(paddx, paddy);

@@ -14,19 +14,40 @@ public class NPC_Guard_2 : MonoBehaviour
     public GameObject accept_button;
     public GameObject attack_button;
     public GameObject kill_button;
-    public Inventory player_inventory;
+    
+    private Inventory player_inventory;
     public string item_wanted;
     public GameObject blood_splater;
 
     private string[] speeches = {"Man i need a smoke",
-        "apreciate it", "*send player to warden*", "*send player to warden*"};
+        "apreciate it", "Try me"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
+
+        if (GameState.kill_guard)
+        {
+            sprite.color = new Color(1f, 0, 0, 1);
+            Destroy(speech_bubble);
+        }
+        else if (GameState.attack_guard)
+        {
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            text = 2;
+            Destroy(accept_button);
+            Destroy(attack_button);
+
+        }
+        else if (GameState.give_Cigaret_To_Guard)
+        {
+            text = 1;
+            Destroy(accept_button);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -69,22 +90,13 @@ public class NPC_Guard_2 : MonoBehaviour
 
     public void Attack()
     {
-        if (text == 1)
-        {
-            text = 3;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(attack_button);
-        }
-        else
-        {
-
-            text = 2;
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-            Destroy(accept_button);
-            Destroy(attack_button);
-        }
+        GameState.attack_guard = true;
+        text = 2;
+        sprite.color = new Color(0.5f, 0, 0, 1);
+        speech_bubble_text.SetText(speeches[text]);
+        updateTextBubble();
+        Destroy(attack_button);
+        Destroy(accept_button);
     }
 
     public void Agree() 
@@ -96,6 +108,8 @@ public class NPC_Guard_2 : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
+                    GameState.give_Cigaret_To_Guard = true;
+
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;
