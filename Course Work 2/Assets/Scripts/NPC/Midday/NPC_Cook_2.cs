@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC_Gang_Lackey : MonoBehaviour
+public class NPC_Cook_2 : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public GameObject speech_bubble;
@@ -11,12 +11,15 @@ public class NPC_Gang_Lackey : MonoBehaviour
     public SpriteRenderer background;
     public float paddx = 0f;
     public float paddy = 0f;
+    public GameObject accept_button;
     public GameObject attack_button;
     public GameObject kill_button;
     public Inventory player_inventory;
+    public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"What you looking at"," ill get you for this"};
+    private string[] speeches = {"Could realy use a cigie",
+        "Thanks man", "Back off", "This is a wierd interaction"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -48,7 +51,6 @@ public class NPC_Gang_Lackey : MonoBehaviour
                 }
             }
         }
-
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -67,10 +69,42 @@ public class NPC_Gang_Lackey : MonoBehaviour
 
     public void Attack()
     {
-        text = 1;
-        speech_bubble_text.SetText(speeches[text]);
-        updateTextBubble();
-        Destroy(attack_button);
+        if (text == 1)
+        {
+            text = 3;
+            speech_bubble_text.SetText(speeches[text]);
+            updateTextBubble();
+            Destroy(attack_button);
+        }
+        else
+        {
+
+            text = 2;
+            speech_bubble_text.SetText(speeches[text]);
+            updateTextBubble();
+            Destroy(accept_button);
+            Destroy(attack_button);
+        }
+    }
+
+    public void Agree() 
+    {
+        foreach (GameObject slot in player_inventory.slots)
+        {
+            if (slot.gameObject.transform.childCount > 0)
+            {
+                GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
+                if (item.tag == item_wanted)
+                {
+                    GameObject.Destroy(item.gameObject);
+
+                    text = 1;
+                    speech_bubble_text.SetText(speeches[text]);
+                    updateTextBubble();
+                    Destroy(accept_button);
+                }
+            }
+        }
     }
 
     private void updateTextBubble()

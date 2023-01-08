@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPC_Cook : MonoBehaviour
+public class NPC_Warden : MonoBehaviour
 {
     public SpriteRenderer sprite;
     public GameObject speech_bubble;
@@ -18,8 +18,8 @@ public class NPC_Cook : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Could realy use a cigie",
-        "Thanks man", "Back off", "This is a wierd interaction"};
+    private string[] speeches = {"What do you wnat?<br>And shouldn't i have a door",
+        "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -61,6 +61,7 @@ public class NPC_Cook : MonoBehaviour
 
     public void Kill()
     {
+        GameState.kill_warden = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -69,6 +70,7 @@ public class NPC_Cook : MonoBehaviour
 
     public void Attack()
     {
+        GameState.attack_warden = true;
         if (text == 1)
         {
             text = 3;
@@ -96,6 +98,7 @@ public class NPC_Cook : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
+                    GameState.warden_Wants_More_Proof = true;
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;
