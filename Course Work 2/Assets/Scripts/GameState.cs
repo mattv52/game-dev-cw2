@@ -21,6 +21,11 @@ public class GameState : MonoBehaviour
 
     public string job = "1";
 
+    public bool caughtMurder = false;
+    public bool attackGuard = false;
+    public bool attackWarden = false;
+    public bool caughtWithKnife = false;
+
     //endings
     public bool rat = false;
     public bool killAttackerUnNoticed = false;
@@ -76,6 +81,11 @@ public class GameState : MonoBehaviour
         getDisc = false;
 
         job = "";
+
+        caughtMurder = false;
+        attackGuard = false;
+        attackWarden = false;
+        caughtWithKnife = false;
 
         //endings
         rat = false;

@@ -21,7 +21,23 @@ public class ending : MonoBehaviour
 
         gs = GameState.Instance;
 
-        if (gs.escaped)
+        if (gs.caughtMurder)
+        {
+            endingText.SetText("You killed another inmate<br>the guard notices and sent you to solitary");
+        }
+        else if (gs.attackGuard)
+        {
+            endingText.SetText("You attacked a guard <br> and were sent to solitary");
+        }
+        else if (gs.attackWarden)
+        {
+            endingText.SetText("You attacked the warden <br> and were sent to solitary");
+        }
+        else if (gs.caughtWithKnife)
+        {
+            endingText.SetText("The Cook notice you stal one of his knives <br> you were sent to solitary");
+        }
+        else if (gs.escaped)
         {
             endingText.SetText("You escaped, and find out the gang was going to<br>kill you and use you as a distraction when attacking<br><br>but your investigation caused enough attention to work<br>they decided to leave you in your freedom");
         }

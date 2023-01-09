@@ -18,7 +18,8 @@ public class NPC_Cook_2 : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
-        
+    private SceneLoader sl;
+
     private string[] speeches = {"Just sit there and learn from me<br>and dont take my knifes.<br>Im watching you", "Why are you here?", "Needed this break", "Oww<br>shouldnt have let you in this kitchen",
     "Ow<br>Thought you were cool"};
     private System.Random rnd = new System.Random();
@@ -28,6 +29,7 @@ public class NPC_Cook_2 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
         if (gs.kill_cook)
@@ -82,6 +84,9 @@ public class NPC_Cook_2 : MonoBehaviour
 
     public void Kill()
     {
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.caughtMurder = true;
+        sl.LoadNignt();
         gs.kill_cook = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);

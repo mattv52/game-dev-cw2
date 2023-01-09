@@ -13,5 +13,4 @@ public class Door : MonoBehaviour
         closedSprite.SetActive(false);
         Time.timeScale = 1;
     }
-
 }

@@ -19,6 +19,7 @@ public class NPC_Guard : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
+    private SceneLoader sl;
 
     private string[] speeches = {"Man I need a smoke",
         "Appreciate it", "*send player to warden*", "*send player to warden*"};
@@ -29,6 +30,7 @@ public class NPC_Guard : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         speech_bubble.SetActive(false);
     }
 
@@ -64,15 +66,19 @@ public class NPC_Guard : MonoBehaviour
 
     public void Kill()
     {
+        gs.attackGuard = true;
         gs.kill_guard = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Instantiate(blood_splater, pos, Quaternion.identity);
+        sl.LoadNignt();
     }
 
     public void Attack()
     {
+        gs.attackGuard = true;
+        sl.LoadNignt();
         gs.attack_guard = true;
         if (text == 1)
         {
@@ -108,6 +114,7 @@ public class NPC_Guard : MonoBehaviour
                     speech_bubble_text.SetText(speeches[text]);
                     updateTextBubble();
                     Destroy(accept_button);
+                    return;
                 }
             }
         }

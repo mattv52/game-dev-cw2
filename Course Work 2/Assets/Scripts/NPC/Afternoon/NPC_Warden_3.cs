@@ -86,6 +86,10 @@ public class NPC_Warden_3 : MonoBehaviour
 
     public void Kill()
     {
+        SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.attackWarden = true;
+        sl.LoadNignt();
+
         gs.kill_warden = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
@@ -95,6 +99,10 @@ public class NPC_Warden_3 : MonoBehaviour
 
     public void Attack()
     {
+        SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.attackWarden = true;
+        sl.LoadNignt();
+
         gs.attack_warden = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         text = 2;

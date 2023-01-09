@@ -18,6 +18,7 @@ public class NPC_Gang_Leader : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
+    private SceneLoader sl;
 
     private string[] speeches = {"You want me to protect you?<br>ok<br>But I need something from you", "Think you'll get away with this", "Get me them pliers from the<br>laundry room<br>then we can talk"};
     private System.Random rnd = new System.Random();
@@ -27,6 +28,7 @@ public class NPC_Gang_Leader : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         speech_bubble.SetActive(false);
     }
 
@@ -62,11 +64,13 @@ public class NPC_Gang_Leader : MonoBehaviour
 
     public void Kill()
     {
+        gs.caughtMurder = true;
         gs.kill_gang_leader = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Instantiate(blood_splater, pos, Quaternion.identity);
+        sl.LoadNignt();
     }
 
     public void Attack()

@@ -567,8 +567,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Cell_Mate_2, Assembly-CSharp
+      - m_Target: {fileID: 2217416335649960493}
+        m_TargetAssemblyTypeName: NPC_Cell_Mate_3, Assembly-CSharp
         m_MethodName: Kill
         m_Mode: 1
         m_Arguments:
@@ -700,8 +700,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: NPC_Cell_Mate_2, Assembly-CSharp
+      - m_Target: {fileID: 2217416335649960493}
+        m_TargetAssemblyTypeName: NPC_Cell_Mate_3, Assembly-CSharp
         m_MethodName: Attack
         m_Mode: 1
         m_Arguments:

@@ -19,6 +19,7 @@ public class NPC_Informant : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
+    private SceneLoader sl;
 
     private string[] speeches = {"Might be able to help you with that note for a cigie",
         "Saw that big guy outside<br>hanging round your cell last night", "Oww, ok, ill tell you<br>Saw that big guy outside hanging<br>round your cell last night", "Why would you do this"};
@@ -29,6 +30,7 @@ public class NPC_Informant : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         speech_bubble.SetActive(false);
     }
 
@@ -65,11 +67,13 @@ public class NPC_Informant : MonoBehaviour
 
     public void Kill()
     {
+        gs.caughtMurder = true;
         gs.kill_informant = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Instantiate(blood_splater, pos, Quaternion.identity);
+        sl.LoadNignt();
     }
 
     public void Attack()
@@ -109,6 +113,7 @@ public class NPC_Informant : MonoBehaviour
                     speech_bubble_text.SetText(speeches[text]);
                     updateTextBubble();
                     Destroy(accept_button);
+                    return;
                 }
             }
         }

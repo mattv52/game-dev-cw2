@@ -15,6 +15,7 @@ TagManager:
   - Pliers
   - Disc
   - UI
+  - SceneLoader
   layers:
   - Default
   - TransparentFX

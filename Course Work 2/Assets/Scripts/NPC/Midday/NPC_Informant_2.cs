@@ -16,7 +16,8 @@ public class NPC_Informant_2 : MonoBehaviour
     public GameObject kill_button;
 
     private GameState gs;
-        
+    private SceneLoader sl;
+
     private Inventory player_inventory;
     public GameObject disc_item;
     public GameObject blood_splater;
@@ -29,6 +30,7 @@ public class NPC_Informant_2 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
@@ -92,6 +94,9 @@ public class NPC_Informant_2 : MonoBehaviour
 
     public void Kill()
     {
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.caughtMurder = true;
+        sl.LoadNignt();
         gs.kill_informant = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);

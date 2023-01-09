@@ -17,7 +17,8 @@ public class NPC_Gang_Lackey_2 : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
-        
+    private SceneLoader sl;
+
     private string[] speeches = {"What you looking at","I'll get you for this"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -26,6 +27,7 @@ public class NPC_Gang_Lackey_2 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
@@ -74,6 +76,9 @@ public class NPC_Gang_Lackey_2 : MonoBehaviour
 
     public void Kill()
     {
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.caughtMurder = true;
+        sl.LoadNignt();
         gs.kill_gang_lackey = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);

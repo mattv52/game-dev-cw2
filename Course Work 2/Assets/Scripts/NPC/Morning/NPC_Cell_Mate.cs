@@ -20,6 +20,7 @@ public class NPC_Cell_Mate : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
+    private SceneLoader sl;
 
     private string[] speeches = {"Hey, I'll give you my shank<br>if you get me some food",
         "Thanks man", "Piss off", "Why would you do this"};
@@ -30,6 +31,7 @@ public class NPC_Cell_Mate : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         speech_bubble.SetActive(false);
     }
 
@@ -66,11 +68,13 @@ public class NPC_Cell_Mate : MonoBehaviour
 
     public void Kill()
     {
+        gs.caughtMurder = true;
         gs.kill_cellmate = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Instantiate(blood_splater, pos, Quaternion.identity);
+        sl.LoadNignt();
     }
 
     public void Attack()
