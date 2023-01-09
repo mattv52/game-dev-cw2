@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Morning.unity
     guid: 3ff9d3b15ae29c1408cd2a20d267fcda
   - enabled: 1
-    path: Assets/Scenes/Afternoon.unity
+    path: Assets/Scenes/Evening.unity
     guid: d1f19d2029831bd41addadc3a4442a19
   - enabled: 1
     path: Assets/Scenes/Midday.unity
