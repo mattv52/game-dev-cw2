@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class Sleep : MonoBehaviour
 {
-    private GameManager gm;
 
     void Awake()
     {
-        gm = GameManager.Instance;
         
     }
 }

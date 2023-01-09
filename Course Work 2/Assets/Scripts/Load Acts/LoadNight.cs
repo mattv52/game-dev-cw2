@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class LoadNight : MonoBehaviour
 {
-    private GameManager gm;
 
     void Awake()
     {
-        gm = GameManager.Instance;
         
     }
 }
