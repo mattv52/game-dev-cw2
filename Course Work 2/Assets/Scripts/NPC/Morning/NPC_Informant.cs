@@ -18,6 +18,8 @@ public class NPC_Informant : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"Might be able to help you with that note for a cigie",
         "Saw that big guy outside<br>hanging round your cell last night", "Oww, ok, ill tell you<br>Saw that big guy outside hanging<br>round your cell last night", "Why would you do this"};
     private System.Random rnd = new System.Random();
@@ -26,6 +28,7 @@ public class NPC_Informant : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -62,7 +65,7 @@ public class NPC_Informant : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_informant = true;
+        gs.kill_informant = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -71,7 +74,7 @@ public class NPC_Informant : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_informant = true;
+        gs.attack_informant = true;
         if (text == 1)
         {
             text = 3;
@@ -99,7 +102,7 @@ public class NPC_Informant : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
-                    GameState.give_Cigaret_To_Informant = true;
+                    gs.give_Cigaret_To_Informant = true;
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;

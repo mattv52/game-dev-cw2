@@ -18,6 +18,8 @@ public class NPC_Guard : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"Man I need a smoke",
         "Appreciate it", "*send player to warden*", "*send player to warden*"};
     private System.Random rnd = new System.Random();
@@ -26,6 +28,7 @@ public class NPC_Guard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -61,7 +64,7 @@ public class NPC_Guard : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_guard = true;
+        gs.kill_guard = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -70,7 +73,7 @@ public class NPC_Guard : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_guard = true;
+        gs.attack_guard = true;
         if (text == 1)
         {
             text = 3;
@@ -98,7 +101,7 @@ public class NPC_Guard : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
-                    GameState.give_Cigaret_To_Guard = true;
+                    gs.give_Cigaret_To_Guard = true;
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;

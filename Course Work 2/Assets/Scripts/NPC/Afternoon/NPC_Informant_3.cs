@@ -17,6 +17,8 @@ public class NPC_Informant_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Hi", "Watch it", "Good Luck", "Leave me alone"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -24,20 +26,21 @@ public class NPC_Informant_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
-        if (GameState.kill_informant)
+        if (gs.kill_informant)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_informant)
+        else if (gs.attack_informant)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 3;
         }
-        else if (GameState.getDisc)
+        else if (gs.getDisc)
         {
             text = 2;
         }
@@ -76,7 +79,7 @@ public class NPC_Informant_3 : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_informant = true;
+        gs.kill_informant = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -86,7 +89,7 @@ public class NPC_Informant_3 : MonoBehaviour
     public void Attack()
     {
 
-        GameState.attack_informant = true;
+        gs.attack_informant = true;
         text = 1;
         sprite.color = new Color(0.5f, 0, 0, 1);
         speech_bubble_text.SetText(speeches[text]);

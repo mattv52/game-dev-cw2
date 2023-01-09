@@ -16,6 +16,8 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"What you looking at","I'll get you for this", "Lets get going"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -23,21 +25,22 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
-        if (GameState.kill_gang_lackey)
+        if (gs.kill_gang_lackey)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_gang_lackey)
+        else if (gs.attack_gang_lackey)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 1;
-        }else if (GameState.accept_gang_job)
+        }else if (gs.accept_gang_job)
         {
-            if (GameState.gang_break_out)
+            if (gs.gang_break_out)
             {
                 text = 2;
                 transform.position = new Vector3(30.07f, -10.9f, -1.0f);
@@ -78,15 +81,15 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
 
     public void Kill()
     {
-        if (GameState.give_Cigaret_To_Guard || GameState.cell_Mate_Distract_Guard)
+        if (gs.give_Cigaret_To_Guard || gs.cell_Mate_Distract_Guard)
         {
-            GameState.killAttackerUnNoticed = true;
+            gs.killAttackerUnNoticed = true;
         }
         else
         {
-            GameState.killAttackerNoticed = true;
+            gs.killAttackerNoticed = true;
         }
-        GameState.kill_gang_lackey = true;
+        gs.kill_gang_lackey = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -95,7 +98,7 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_gang_lackey = true;
+        gs.attack_gang_lackey = true;
         text = 1;
         sprite.color = new Color(0.5f, 0, 0, 1);
         speech_bubble_text.SetText(speeches[text]);

@@ -8,6 +8,13 @@ public class SceneLoader : MonoBehaviour
     public GameObject player;
     public GameObject UI;
 
+    private GameState gs;
+
+    void Start()
+    {
+        gs = GameState.Instance;
+    }
+
     private void Awake()
     {
         UI.SetActive(false);
@@ -20,7 +27,7 @@ public class SceneLoader : MonoBehaviour
     }
     public void reset()
     {
-        GameState.reset();
+        gs.reset();
         player.SetActive(false);
         UI.SetActive(false);
         SceneManager.LoadScene(0);

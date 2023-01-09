@@ -2514,7 +2514,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1216798032}
   - component: {fileID: 1216798031}
-  - component: {fileID: 1216798030}
   - component: {fileID: 1216798029}
   m_Layer: 0
   m_Name: GameState
@@ -2537,18 +2536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8540668647279702116}
   UI: {fileID: 767511419}
---- !u!114 &1216798030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1216798028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fac22a7da6bd5444bf799fc7bcf3fb1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1216798031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,6 +2548,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418e1d89d0b3f9240a4011f5f6495535, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cell_Mate_Trade_Shive: 0
+  warden_Wants_More_Proof: 0
+  give_Cigaret_To_Cook: 0
+  give_Cigaret_To_Informant: 0
+  give_Cigaret_To_Guard: 0
+  accept_gang_job: 0
+  gang_break_out: 0
+  cell_Mate_Distract_Guard: 0
+  getDisc: 0
+  job: 1
+  rat: 0
+  killAttackerUnNoticed: 0
+  killAttackerNoticed: 0
+  escaped: 0
+  attack_cellmate: 0
+  kill_cellmate: 0
+  attack_cook: 0
+  kill_cook: 0
+  attack_informant: 0
+  kill_informant: 0
+  attack_guard: 0
+  kill_guard: 0
+  attack_warden: 0
+  kill_warden: 0
+  attack_gang_leader: 0
+  kill_gang_leader: 0
+  attack_gang_lackey: 0
+  kill_gang_lackey: 0
 --- !u!4 &1216798032
 Transform:
   m_ObjectHideFlags: 0

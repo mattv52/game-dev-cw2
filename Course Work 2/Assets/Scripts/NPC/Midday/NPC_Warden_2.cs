@@ -18,6 +18,8 @@ public class NPC_Warden_2 : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"What do you want?<br>And shouldn't I have a door",
         "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
     private System.Random rnd = new System.Random();
@@ -26,6 +28,7 @@ public class NPC_Warden_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
     }

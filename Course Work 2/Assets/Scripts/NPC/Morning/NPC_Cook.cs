@@ -18,6 +18,8 @@ public class NPC_Cook : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"Could really use a cigie",
         "Thanks man", "Back off", "This is a weird interaction"};
     private System.Random rnd = new System.Random();
@@ -26,6 +28,7 @@ public class NPC_Cook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -61,7 +64,7 @@ public class NPC_Cook : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_cook = true;
+        gs.kill_cook = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -70,7 +73,7 @@ public class NPC_Cook : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_cook = true;
+        gs.attack_cook = true;
         if (text == 1)
         {
             text = 3;
@@ -98,7 +101,7 @@ public class NPC_Cook : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
-                    GameState.give_Cigaret_To_Cook = true;
+                    gs.give_Cigaret_To_Cook = true;
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;

@@ -16,6 +16,8 @@ public class NPC_Gang_Lackey : MonoBehaviour
     public Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"What you looking at","I'll get you for this"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -23,6 +25,7 @@ public class NPC_Gang_Lackey : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -59,7 +62,7 @@ public class NPC_Gang_Lackey : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_gang_lackey = true;
+        gs.kill_gang_lackey = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -68,7 +71,7 @@ public class NPC_Gang_Lackey : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_gang_lackey = true;
+        gs.attack_gang_lackey = true;
         text = 1;
         speech_bubble_text.SetText(speeches[text]);
         updateTextBubble();

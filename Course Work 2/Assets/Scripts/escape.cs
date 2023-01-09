@@ -7,9 +7,16 @@ public class escape : MonoBehaviour
 {
     public string next_scene;
 
+    private GameState gs;
+
+    void Start() 
+    {
+        gs = GameState.Instance;
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
-        GameState.escaped = true;
+        gs.escaped = true;
         SceneManager.LoadScene(next_scene);
 
     }

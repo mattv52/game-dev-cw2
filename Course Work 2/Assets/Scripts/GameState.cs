@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    public static GameState Instance;
+    
+
     public bool cell_Mate_Trade_Shive = false;
     public bool warden_Wants_More_Proof = false;
     public bool give_Cigaret_To_Cook = false;
@@ -45,7 +48,17 @@ public class GameState : MonoBehaviour
     public bool attack_gang_lackey = false;
     public bool kill_gang_lackey = false;
 
-    
+
+
+    void Awake()
+    {
+        if (Instance != null)
+            GameObject.Destroy(Instance);
+        else
+            Instance = this;
+
+        DontDestroyOnLoad(this);
+    }
 
     public void reset()
     {
@@ -89,11 +102,6 @@ public class GameState : MonoBehaviour
         //
         attack_gang_lackey = false;
         kill_gang_lackey = false;
-    }
-
-    void Awake()
-    {
-        job = "test";
     }
 
     void Update()

@@ -18,33 +18,36 @@ public class NPC_Guard_3 : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Move along", "Try me", "Thanks for the smoke", "Theres nothing here<br>quit wasting my time"};
     private int text = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
-        if (GameState.kill_guard)
+        if (gs.kill_guard)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_guard)
+        else if (gs.attack_guard)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 1;
             Destroy(attack_button);
 
         }
-        else if (GameState.cell_Mate_Distract_Guard)
+        else if (gs.cell_Mate_Distract_Guard)
         {
             text = 3;
             transform.position = new Vector3(48f, -13.3f, -1.0f);
         }
-        else if (GameState.give_Cigaret_To_Guard)
+        else if (gs.give_Cigaret_To_Guard)
         {
             text = 2;
             transform.position = new Vector3(48f, -13.3f, -1.0f);
@@ -91,7 +94,7 @@ public class NPC_Guard_3 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_guard = true;
+        gs.attack_guard = true;
         text = 2;
         sprite.color = new Color(0.5f, 0, 0, 1);
         speech_bubble_text.SetText(speeches[text]);

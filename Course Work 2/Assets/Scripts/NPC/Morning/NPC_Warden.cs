@@ -18,6 +18,8 @@ public class NPC_Warden : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"What do you want?<br>And shouldn't I have a door",
         "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
     private System.Random rnd = new System.Random();
@@ -26,6 +28,7 @@ public class NPC_Warden : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -61,7 +64,7 @@ public class NPC_Warden : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_warden = true;
+        gs.kill_warden = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -70,7 +73,7 @@ public class NPC_Warden : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_warden = true;
+        gs.attack_warden = true;
         if (text == 1)
         {
             text = 3;
@@ -98,7 +101,7 @@ public class NPC_Warden : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
-                    GameState.warden_Wants_More_Proof = true;
+                    gs.warden_Wants_More_Proof = true;
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;

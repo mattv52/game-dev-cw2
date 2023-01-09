@@ -17,6 +17,8 @@ public class NPC_Gang_Leader : MonoBehaviour
     public Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"You want me to protect you?<br>ok<br>But I need something from you", "Think you'll get away with this", "Get me them pliers from the<br>laundry room<br>then we can talk"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -24,6 +26,7 @@ public class NPC_Gang_Leader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -59,7 +62,7 @@ public class NPC_Gang_Leader : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_gang_leader = true;
+        gs.kill_gang_leader = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -68,7 +71,7 @@ public class NPC_Gang_Leader : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_gang_leader = true;
+        gs.attack_gang_leader = true;
         text = 1;
         speech_bubble_text.SetText(speeches[text]);
         updateTextBubble();
@@ -78,7 +81,7 @@ public class NPC_Gang_Leader : MonoBehaviour
 
     public void Agree()
     {
-        GameState.accept_gang_job = true;
+        gs.accept_gang_job = true;
         text = 2;
         speech_bubble_text.SetText(speeches[text]);
         updateTextBubble();

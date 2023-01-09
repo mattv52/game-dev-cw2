@@ -18,6 +18,8 @@ public class NPC_Warden_3 : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Why are you in my office?","Leave me alone",
         "You know im the warden right?", "Do you have anything?", "This is good<br>You'll be fine.<br>I can take care of this"};
     private System.Random rnd = new System.Random();
@@ -26,22 +28,23 @@ public class NPC_Warden_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
-        if (GameState.kill_warden)
+        if (gs.kill_warden)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_warden)
+        else if (gs.attack_warden)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 1;
             Destroy(accept_button);
 
         }
-        else if (GameState.warden_Wants_More_Proof)
+        else if (gs.warden_Wants_More_Proof)
         {
             text = 3;
         }
@@ -83,7 +86,7 @@ public class NPC_Warden_3 : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_warden = true;
+        gs.kill_warden = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -92,7 +95,7 @@ public class NPC_Warden_3 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_warden = true;
+        gs.attack_warden = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         text = 2;
         Destroy(accept_button);
@@ -116,7 +119,7 @@ public class NPC_Warden_3 : MonoBehaviour
                     updateTextBubble();
                     Destroy(accept_button);
 
-                    GameState.rat = true;
+                    gs.rat = true;
                 }
             }
         }

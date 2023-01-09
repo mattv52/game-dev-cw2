@@ -19,6 +19,8 @@ public class NPC_Cell_Mate : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+
     private string[] speeches = {"Hey, I'll give you my shank<br>if you get me some food",
         "Thanks man", "Piss off", "Why would you do this"};
     private System.Random rnd = new System.Random();
@@ -27,6 +29,7 @@ public class NPC_Cell_Mate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         speech_bubble.SetActive(false);
     }
 
@@ -63,7 +66,7 @@ public class NPC_Cell_Mate : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_cellmate = true;
+        gs.kill_cellmate = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -72,7 +75,7 @@ public class NPC_Cell_Mate : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_cellmate = true;
+        gs.attack_cellmate = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         if (text == 1)
         {
@@ -104,7 +107,7 @@ public class NPC_Cell_Mate : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
-                    GameState.cell_Mate_Trade_Shive = true;
+                    gs.cell_Mate_Trade_Shive = true;
                     GameObject.Destroy(item.gameObject);
 
                     text = 1;

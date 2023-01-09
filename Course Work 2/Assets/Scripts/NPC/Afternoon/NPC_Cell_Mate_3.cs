@@ -18,6 +18,8 @@ public class NPC_Cell_Mate_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Hi", "Leave me alone", "Thought there was<br>something going on here", "Why"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -25,20 +27,21 @@ public class NPC_Cell_Mate_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 
         speech_bubble.SetActive(false);
-        if (GameState.kill_cellmate)
+        if (gs.kill_cellmate)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_cellmate)
+        else if (gs.attack_cellmate)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 1;
         }
-        else if (GameState.cell_Mate_Distract_Guard)
+        else if (gs.cell_Mate_Distract_Guard)
         {
             text = 2;
             transform.position = new Vector3(45.35f, -11.76f, -1.0f);
@@ -79,7 +82,7 @@ public class NPC_Cell_Mate_3 : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_cellmate = true;
+        gs.kill_cellmate = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -88,7 +91,7 @@ public class NPC_Cell_Mate_3 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_cellmate = true;
+        gs.attack_cellmate = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         if (text == 1)
         {

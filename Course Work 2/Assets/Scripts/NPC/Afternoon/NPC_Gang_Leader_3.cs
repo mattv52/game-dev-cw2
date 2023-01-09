@@ -19,6 +19,8 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"What you want", "Think you'll get away with this", "Your not that useful are you", "We're leaving<br>Join us if you want"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -26,22 +28,23 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
-        if (GameState.kill_gang_leader)
+        if (gs.kill_gang_leader)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_gang_leader)
+        else if (gs.attack_gang_leader)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 1;
         }
-        else if (GameState.accept_gang_job)
+        else if (gs.accept_gang_job)
         {
-            if (GameState.gang_break_out)
+            if (gs.gang_break_out)
             {
                 text = 3;
                 transform.position = new Vector3(33.07f, -12.9f, -1.0f);
@@ -89,7 +92,7 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_gang_leader = true;
+        gs.kill_gang_leader = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -98,7 +101,7 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_gang_leader = true;
+        gs.attack_gang_leader = true;
         text = 2;
         sprite.color = new Color(0.5f, 0, 0, 1);
         speech_bubble_text.SetText(speeches[text]);

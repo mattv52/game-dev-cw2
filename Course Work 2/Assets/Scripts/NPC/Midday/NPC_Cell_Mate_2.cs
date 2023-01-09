@@ -15,10 +15,11 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     public GameObject attack_button;
     public GameObject kill_button;
 
-
     private Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Hi", "Hey I could distact<br>the guard if that helps you", "Leave me alone", "Why", "Ill keep him busy<br>this afternoon"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -26,21 +27,22 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 
         speech_bubble.SetActive(false);
-        if (GameState.kill_cellmate)
+        if (gs.kill_cellmate)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_cellmate)
+        else if (gs.attack_cellmate)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 2;
             Destroy(guard_button);
         }
-        else if (GameState.cell_Mate_Trade_Shive)
+        else if (gs.cell_Mate_Trade_Shive)
         {
             text = 1;
         }
@@ -84,7 +86,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_cellmate = true;
+        gs.kill_cellmate = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -93,7 +95,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_cellmate = true;
+        gs.attack_cellmate = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         if (text == 1)
         {
@@ -115,7 +117,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     public void Agree() 
     {
         text = 4;
-        GameState.cell_Mate_Distract_Guard = true;
+        gs.cell_Mate_Distract_Guard = true;
         updateTextBubble();
         Destroy(guard_button);
     }

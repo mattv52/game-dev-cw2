@@ -17,6 +17,8 @@ public class NPC_Cook_2 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Just sit there and learn from me<br>and dont take my knifes.<br>Im watching you", "Why are you here?", "Needed this break", "Oww<br>shouldnt have let you in this kitchen",
     "Ow<br>Thought you were cool"};
     private System.Random rnd = new System.Random();
@@ -25,19 +27,20 @@ public class NPC_Cook_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
-        if (GameState.kill_cook)
+        if (gs.kill_cook)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_cook)
+        else if (gs.attack_cook)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 1;
         }
-        else if (GameState.give_Cigaret_To_Cook)
+        else if (gs.give_Cigaret_To_Cook)
         {
             text = 2;
             transform.position = new Vector3(33f, -10.15f, -1.0f);
@@ -79,15 +82,15 @@ public class NPC_Cook_2 : MonoBehaviour
 
     public void Kill()
     {
-        GameState.kill_cook = true;
+        gs.kill_cook = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
     }
 
     public void Attack()
     {
-        GameState.attack_cook = true;
-        if (GameState.give_Cigaret_To_Cook)
+        gs.attack_cook = true;
+        if (gs.give_Cigaret_To_Cook)
         {
             text = 4;
         }

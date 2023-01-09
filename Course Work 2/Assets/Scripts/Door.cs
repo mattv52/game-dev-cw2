@@ -9,9 +9,15 @@ public class Door : MonoBehaviour
     public string location;
     public bool open;
 
+    private GameState gs;
+
+    void Start() {
+        gs = GameState.Instance;
+    }
+
     void Update()
     {
-        if (GameState.job == location)
+        if (gs.job == location)
         {
             open = true;
         }

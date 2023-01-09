@@ -15,10 +15,13 @@ public class NPC_Guard_2 : MonoBehaviour
     public GameObject attack_button;
     public GameObject kill_button;
     
+
     private Inventory player_inventory;
     public string item_wanted;
     public GameObject blood_splater;
 
+    private GameState gs;
+        
     private string[] speeches = {"Man I need a smoke",
         "Appreciate it", "Try me"};
     private System.Random rnd = new System.Random();
@@ -27,15 +30,16 @@ public class NPC_Guard_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
-        if (GameState.kill_guard)
+        if (gs.kill_guard)
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);
         }
-        else if (GameState.attack_guard)
+        else if (gs.attack_guard)
         {
             sprite.color = new Color(0.5f, 0, 0, 1);
             text = 2;
@@ -43,7 +47,7 @@ public class NPC_Guard_2 : MonoBehaviour
             Destroy(attack_button);
 
         }
-        else if (GameState.give_Cigaret_To_Guard)
+        else if (gs.give_Cigaret_To_Guard)
         {
             text = 1;
             Destroy(accept_button);
@@ -90,7 +94,7 @@ public class NPC_Guard_2 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_guard = true;
+        gs.attack_guard = true;
         text = 2;
         sprite.color = new Color(0.5f, 0, 0, 1);
         speech_bubble_text.SetText(speeches[text]);
@@ -108,7 +112,7 @@ public class NPC_Guard_2 : MonoBehaviour
                 GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
                 if (item.tag == item_wanted)
                 {
-                    GameState.give_Cigaret_To_Guard = true;
+                    gs.give_Cigaret_To_Guard = true;
 
                     GameObject.Destroy(item.gameObject);
 
