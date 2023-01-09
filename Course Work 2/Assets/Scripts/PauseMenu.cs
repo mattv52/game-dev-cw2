@@ -5,8 +5,8 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject canvas;
-    private GameState gs;
 
+    private GameState gs;
 
     void Start(){
         gs = GameState.Instance;
@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     public void pause()
     {
         GameState.Instance.job = "changed";
-        // Time.timeScale = 0;
+        Time.timeScale = 0;
         canvas.SetActive(true);
         
     }

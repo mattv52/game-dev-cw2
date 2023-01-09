@@ -6,7 +6,6 @@ public class GameState : MonoBehaviour
 {
     public static GameState Instance;
     
-
     public bool cell_Mate_Trade_Shive = false;
     public bool warden_Wants_More_Proof = false;
     public bool give_Cigaret_To_Cook = false;
@@ -62,6 +61,9 @@ public class GameState : MonoBehaviour
 
     public void reset()
     {
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        Destroy(GameObject.FindGameObjectWithTag("UI"));
+
         cell_Mate_Trade_Shive = false;
         warden_Wants_More_Proof = false;
         give_Cigaret_To_Cook = false;
@@ -102,10 +104,5 @@ public class GameState : MonoBehaviour
         //
         attack_gang_lackey = false;
         kill_gang_lackey = false;
-    }
-
-    void Update()
-    {
-        print(job);
     }
 }
