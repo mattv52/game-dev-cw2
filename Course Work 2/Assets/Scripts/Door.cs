@@ -9,18 +9,9 @@ public class Door : MonoBehaviour
     public string location;
     public bool open;
 
-    private GameManager gm;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        gm = GameManager.Instance;
-
-    }
-
     void Update()
     {
-        if (gm.job == location)
+        if (GameState.job == location)
         {
             open = true;
         }

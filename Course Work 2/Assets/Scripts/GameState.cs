@@ -16,6 +16,8 @@ public class GameState : MonoBehaviour
     public static bool cell_Mate_Distract_Guard = false;
     public static bool getDisc = false;
 
+    public static string job;
+
     //endings
     public static bool rat = false;
     public static bool killAttackerUnNoticed = false;

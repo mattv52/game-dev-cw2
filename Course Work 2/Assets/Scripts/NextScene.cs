@@ -9,13 +9,6 @@ public class NextScene : MonoBehaviour
     public GameObject ConfirmPanel;
     public GameObject interactive; 
     public string next_scene;
-
-    private GameManager gm;
-
-    void Start()
-    {
-        gm = GameManager.Instance;
-    }
     
     void OnTriggerEnter2D(Collider2D collision)
     {
