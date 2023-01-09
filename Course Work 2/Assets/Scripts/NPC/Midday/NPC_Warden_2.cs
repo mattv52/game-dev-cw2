@@ -19,7 +19,8 @@ public class NPC_Warden_2 : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
-        
+    private SceneLoader sl;
+
     private string[] speeches = {"What do you want?<br>And shouldn't I have a door",
         "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
     private System.Random rnd = new System.Random();
@@ -29,6 +30,7 @@ public class NPC_Warden_2 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
     }
@@ -65,6 +67,9 @@ public class NPC_Warden_2 : MonoBehaviour
 
     public void Kill()
     {
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.attackWarden = true;
+        sl.LoadNignt();
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -73,6 +78,9 @@ public class NPC_Warden_2 : MonoBehaviour
 
     public void Attack()
     {
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.attackWarden = true;
+        sl.LoadNignt();
         if (text == 1)
         {
             text = 3;

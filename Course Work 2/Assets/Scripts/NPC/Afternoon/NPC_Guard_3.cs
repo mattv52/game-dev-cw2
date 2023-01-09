@@ -86,6 +86,10 @@ public class NPC_Guard_3 : MonoBehaviour
 
     public void Kill()
     {
+        SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.attackGuard = true;
+        sl.LoadNignt();
+
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
@@ -94,6 +98,10 @@ public class NPC_Guard_3 : MonoBehaviour
 
     public void Attack()
     {
+        SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.attackGuard = true;
+        sl.LoadNignt();
+
         gs.attack_guard = true;
         text = 2;
         sprite.color = new Color(0.5f, 0, 0, 1);

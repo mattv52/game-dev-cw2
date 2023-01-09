@@ -19,6 +19,7 @@ public class NPC_Cook : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
+    private SceneLoader sl;
 
     private string[] speeches = {"Could really use a cigie",
         "Thanks man", "Back off", "This is a weird interaction"};
@@ -29,6 +30,7 @@ public class NPC_Cook : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         speech_bubble.SetActive(false);
     }
 
@@ -64,11 +66,13 @@ public class NPC_Cook : MonoBehaviour
 
     public void Kill()
     {
+        gs.caughtMurder = true;
         gs.kill_cook = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Instantiate(blood_splater, pos, Quaternion.identity);
+        sl.LoadNignt();
     }
 
     public void Attack()
@@ -108,6 +112,7 @@ public class NPC_Cook : MonoBehaviour
                     speech_bubble_text.SetText(speeches[text]);
                     updateTextBubble();
                     Destroy(accept_button);
+                    return;
                 }
             }
         }

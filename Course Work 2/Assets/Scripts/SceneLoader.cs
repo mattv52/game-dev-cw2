@@ -62,8 +62,8 @@ public class SceneLoader : MonoBehaviour
     //     SceneManager.LoadScene(3);
     // }
 
-    // public void LoadNignt()
-    // {
-    //     SceneManager.LoadScene(4);
-    // }
+    public void LoadNignt()
+    {
+         SceneManager.LoadScene(4);
+    }
 }

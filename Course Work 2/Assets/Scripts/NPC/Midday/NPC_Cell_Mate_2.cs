@@ -19,7 +19,8 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
-        
+    private SceneLoader sl;
+
     private string[] speeches = {"Hi", "Hey I could distact<br>the guard if that helps you", "Leave me alone", "Why", "Ill keep him busy<br>this afternoon"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -28,6 +29,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 
         speech_bubble.SetActive(false);
@@ -86,6 +88,11 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Kill()
     {
+
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        gs.caughtMurder = true;
+        sl.LoadNignt();
+
         gs.kill_cellmate = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);

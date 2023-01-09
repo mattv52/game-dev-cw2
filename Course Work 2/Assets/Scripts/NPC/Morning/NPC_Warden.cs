@@ -19,6 +19,7 @@ public class NPC_Warden : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
+    private SceneLoader sl;
 
     private string[] speeches = {"What do you want?<br>And shouldn't I have a door",
         "Your going to need more<br>proof then a note", "*kill player*", "*kill player*"};
@@ -29,6 +30,7 @@ public class NPC_Warden : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         speech_bubble.SetActive(false);
     }
 
@@ -64,15 +66,19 @@ public class NPC_Warden : MonoBehaviour
 
     public void Kill()
     {
+        gs.attackWarden = true;
         gs.kill_warden = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Instantiate(blood_splater, pos, Quaternion.identity);
+        sl.LoadNignt();
     }
 
     public void Attack()
     {
+        gs.attackWarden = true;
+        sl.LoadNignt();
         gs.attack_warden = true;
         if (text == 1)
         {

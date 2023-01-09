@@ -28,6 +28,12 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (gs.give_Cigaret_To_Guard == false)
+        {
+            SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+            gs.caughtMurder = true;
+            sl.LoadNignt();
+        }
         gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
