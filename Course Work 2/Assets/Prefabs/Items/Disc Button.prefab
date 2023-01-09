@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 189491165683835705}
   m_Layer: 5
   m_Name: Disc Button
-  m_TagString: Cigaret
+  m_TagString: Disc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

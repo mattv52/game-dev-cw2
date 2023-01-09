@@ -13,6 +13,7 @@ TagManager:
   - Pizza
   - Food
   - Pliers
+  - Disc
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,13 @@ public class GameState : MonoBehaviour
     public static bool gang_break_out = false;
 
     public static bool cell_Mate_Distract_Guard = false;
+    public static bool getDisc = false;
+
+    //endings
+    public static bool rat = false;
+    public static bool killAttackerUnNoticed = false;
+    public static bool killAttackerNoticed = false;
+    public static bool escaped = false;
     //
     public static bool attack_cellmate = false;
     public static bool kill_cellmate = false;

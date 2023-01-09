@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2580490193450347321}
   m_Layer: 0
   m_Name: Disc Pick Up
-  m_TagString: Cigaret
+  m_TagString: Disc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

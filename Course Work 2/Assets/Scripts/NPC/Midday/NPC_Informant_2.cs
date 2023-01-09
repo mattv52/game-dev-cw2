@@ -19,7 +19,7 @@ public class NPC_Informant_2 : MonoBehaviour
     public GameObject disc_item;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hi", "Watch it", "You need proof<br>if you know what<br>those two are planning i can help", "heres a video of them planthing the note"};
+    private string[] speeches = {"Hi", "Watch it", "You need proof<br>if you know what<br>those two are planning i can help", "heres a video of them planthing the note", "Fine here, leave me alone"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 
@@ -98,12 +98,29 @@ public class NPC_Informant_2 : MonoBehaviour
 
     public void Attack()
     {
-        GameState.attack_informant = true;
-        text = 1;
-        sprite.color = new Color(0.5f, 0, 0, 1);
-        speech_bubble_text.SetText(speeches[text]);
-        updateTextBubble();
-        Destroy(attack_button);
+        if (GameState.give_Cigaret_To_Informant && GameState.warden_Wants_More_Proof)
+        {
+            GameState.getDisc = true;
+            Vector2 npcPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
+            Instantiate(disc_item, npcPos, Quaternion.identity);
+            GameState.attack_informant = true;
+            text = 4;
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            speech_bubble_text.SetText(speeches[text]);
+            updateTextBubble();
+            Destroy(attack_button);
+            Destroy(accept_button);
+        }
+        else
+        {
+            GameState.attack_informant = true;
+            text = 1;
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            speech_bubble_text.SetText(speeches[text]);
+            updateTextBubble();
+            Destroy(attack_button);
+        }
+
     }
 
     public void Agree() 
@@ -115,6 +132,7 @@ public class NPC_Informant_2 : MonoBehaviour
             updateTextBubble();
             Destroy(accept_button);
 
+            GameState.getDisc = true;
             Vector2 npcPos = new Vector2(transform.position.x, transform.position.y + 0.5f);
             Instantiate(disc_item, npcPos, Quaternion.identity);
         }
