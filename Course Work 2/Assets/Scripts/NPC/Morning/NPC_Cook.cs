@@ -18,8 +18,8 @@ public class NPC_Cook : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Could realy use a cigie",
-        "Thanks man", "Back off", "This is a wierd interaction"};
+    private string[] speeches = {"Could really use a cigie",
+        "Thanks man", "Back off", "This is a weird interaction"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

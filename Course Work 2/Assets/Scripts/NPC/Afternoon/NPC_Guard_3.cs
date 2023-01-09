@@ -18,8 +18,7 @@ public class NPC_Guard_3 : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Move along", "Try me", "Tanks for the smoke", "Theres nothing here<br>quit wasting my time"};
-    private System.Random rnd = new System.Random();
+    private string[] speeches = {"Move along", "Try me", "Thanks for the smoke", "Theres nothing here<br>quit wasting my time"};
     private int text = 0;
 
     // Start is called before the first frame update

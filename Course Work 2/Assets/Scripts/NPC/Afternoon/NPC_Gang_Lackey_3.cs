@@ -16,7 +16,7 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"What you looking at"," ill get you for this", "Lets get going"};
+    private string[] speeches = {"What you looking at","I'll get you for this", "Lets get going"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

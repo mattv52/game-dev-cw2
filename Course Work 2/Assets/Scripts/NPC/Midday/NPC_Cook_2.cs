@@ -17,8 +17,8 @@ public class NPC_Cook_2 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Just sit there and learn from me<br>and dont take my knifes.<br>Im watching you", "why are you here?", "Needed this break", "Oww<br>shouldnt have let you in this kitchen",
-    "Ow<br>thaught you were cool"};
+    private string[] speeches = {"Just sit there and learn from me<br>and dont take my knifes.<br>Im watching you", "Why are you here?", "Needed this break", "Oww<br>shouldnt have let you in this kitchen",
+    "Ow<br>Thought you were cool"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

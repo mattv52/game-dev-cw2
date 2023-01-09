@@ -19,7 +19,7 @@ public class NPC_Informant_2 : MonoBehaviour
     public GameObject disc_item;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hi", "Watch it", "You need proof<br>if you know what<br>those two are planning i can help", "heres a video of them planthing the note", "Fine here, leave me alone"};
+    private string[] speeches = {"Hi", "Watch it", "You need proof<br>If you know what<br>those two are planning I can help", "Heres a video of them planting the note", "Fine here, leave me alone"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

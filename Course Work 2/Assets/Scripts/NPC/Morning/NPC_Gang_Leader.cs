@@ -17,7 +17,7 @@ public class NPC_Gang_Leader : MonoBehaviour
     public Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"You want me to protect you<br>ok<br>But i need something from you", "Think youll get away with this", "Get me them pliers from the<br>laundry room<br>then we can talk"};
+    private string[] speeches = {"You want me to protect you?<br>ok<br>But I need something from you", "Think you'll get away with this", "Get me them pliers from the<br>laundry room<br>then we can talk"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

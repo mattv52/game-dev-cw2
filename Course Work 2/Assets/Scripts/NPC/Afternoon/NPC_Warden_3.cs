@@ -18,8 +18,8 @@ public class NPC_Warden_3 : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Why are you in my office","Leave ma alone",
-        "You know im the warden right", "Do you have anything", "This is good<br>Youll be fine i can take care of this"};
+    private string[] speeches = {"Why are you in my office?","Leave me alone",
+        "You know im the warden right?", "Do you have anything?", "This is good<br>You'll be fine.<br>I can take care of this"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

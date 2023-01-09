@@ -18,7 +18,7 @@ public class NPC_Cell_Mate_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hi", "Leave me alone", "Thaough there was<br>something going on here", "Why"};
+    private string[] speeches = {"Hi", "Leave me alone", "Thought there was<br>something going on here", "Why"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

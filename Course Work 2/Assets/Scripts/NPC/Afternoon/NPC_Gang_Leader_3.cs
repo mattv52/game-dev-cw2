@@ -19,7 +19,7 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"What you want", "Think youll get away with this", "Your not that useful are you", "Were leaving<br>joing us if you want"};
+    private string[] speeches = {"What you want", "Think you'll get away with this", "Your not that useful are you", "We're leaving<br>Join us if you want"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

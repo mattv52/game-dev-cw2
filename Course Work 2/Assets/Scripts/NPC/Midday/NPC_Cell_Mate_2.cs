@@ -19,7 +19,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hi", "Hey i could distact<br>the guard if that helps you", "Leave me alone", "Why", "Ill keep him busy<br>this afternoon"};
+    private string[] speeches = {"Hi", "Hey I could distact<br>the guard if that helps you", "Leave me alone", "Why", "Ill keep him busy<br>this afternoon"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

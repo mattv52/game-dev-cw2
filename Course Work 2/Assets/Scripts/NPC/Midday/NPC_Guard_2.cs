@@ -19,8 +19,8 @@ public class NPC_Guard_2 : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Man i need a smoke",
-        "apreciate it", "Try me"};
+    private string[] speeches = {"Man I need a smoke",
+        "Appreciate it", "Try me"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

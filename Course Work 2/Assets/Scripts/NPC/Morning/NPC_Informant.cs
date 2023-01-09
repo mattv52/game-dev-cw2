@@ -18,7 +18,7 @@ public class NPC_Informant : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Might be able to help you with thet note for a cigie",
+    private string[] speeches = {"Might be able to help you with that note for a cigie",
         "Saw that big guy outside<br>hanging round your cell last night", "Oww, ok, ill tell you<br>Saw that big guy outside hanging<br>round your cell last night", "Why would you do this"};
     private System.Random rnd = new System.Random();
     private int text = 0;

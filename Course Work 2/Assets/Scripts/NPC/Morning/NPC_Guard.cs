@@ -18,8 +18,8 @@ public class NPC_Guard : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Man i need a smoke",
-        "apreciate it", "*send player to warden*", "*send player to warden*"};
+    private string[] speeches = {"Man I need a smoke",
+        "Appreciate it", "*send player to warden*", "*send player to warden*"};
     private System.Random rnd = new System.Random();
     private int text = 0;
 

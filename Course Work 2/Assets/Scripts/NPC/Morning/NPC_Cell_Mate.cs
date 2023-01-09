@@ -19,7 +19,7 @@ public class NPC_Cell_Mate : MonoBehaviour
     public string item_wanted;
     public GameObject blood_splater;
 
-    private string[] speeches = {"Hey, ill give you my shank<br>if you give me your breakfast",
+    private string[] speeches = {"Hey, I'll give you my shank<br>if you get me some food",
         "Thanks man", "Piss off", "Why would you do this"};
     private System.Random rnd = new System.Random();
     private int text = 0;
