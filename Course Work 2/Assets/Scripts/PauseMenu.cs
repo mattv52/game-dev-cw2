@@ -8,8 +8,10 @@ public class PauseMenu : MonoBehaviour
 
     public void pause()
     {
-        Time.timeScale = 0;
+        GameState.job = "changed";
+        // Time.timeScale = 0;
         canvas.SetActive(true);
+        
     }
 
     public void play()

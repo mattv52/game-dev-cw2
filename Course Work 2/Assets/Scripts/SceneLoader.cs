@@ -5,9 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    public GameObject player;
+    public GameObject UI;
+
+    private void Awake()
+    {
+        UI.SetActive(false);
+        player.SetActive(false);
+    }
+
     public void QuitGame()
     {
         Application.Quit();
+    }
+    public void reset()
+    {
+        GameState.reset();
+        player.SetActive(false);
+        UI.SetActive(false);
+        SceneManager.LoadScene(0);
     }
 
     // public void LoadMenu()
@@ -23,6 +39,8 @@ public class SceneLoader : MonoBehaviour
     public void LoadMorning()
     {
         SceneManager.LoadScene("Morning");
+        player.SetActive(true);
+        UI.SetActive(true);
     }
 
     // public void LoadMidday()

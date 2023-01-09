@@ -16,7 +16,7 @@ public class GameState : MonoBehaviour
     public static bool cell_Mate_Distract_Guard = false;
     public static bool getDisc = false;
 
-    public static string job;
+    public static string job = "1";
 
     //endings
     public static bool rat = false;
@@ -45,5 +45,57 @@ public class GameState : MonoBehaviour
     public static bool attack_gang_lackey = false;
     public static bool kill_gang_lackey = false;
 
-    
+    public static void reset()
+    {
+        cell_Mate_Trade_Shive = false;
+        warden_Wants_More_Proof = false;
+        give_Cigaret_To_Cook = false;
+        give_Cigaret_To_Informant = false;
+        give_Cigaret_To_Guard = false;
+        accept_gang_job = false;
+
+        gang_break_out = false;
+
+        cell_Mate_Distract_Guard = false;
+        getDisc = false;
+
+        job = "";
+
+        //endings
+        rat = false;
+        killAttackerUnNoticed = false;
+        killAttackerNoticed = false;
+        escaped = false;
+        //
+        attack_cellmate = false;
+        kill_cellmate = false;
+        //
+        attack_cook = false;
+        kill_cook = false;
+        //
+        attack_informant = false;
+        kill_informant = false;
+        
+        attack_guard = false;
+        kill_guard = false;
+        //
+        attack_warden = false;
+        kill_warden = false;
+        //
+        attack_gang_leader = false;
+        kill_gang_leader = false;
+        //
+        attack_gang_lackey = false;
+        kill_gang_lackey = false;
+    }
+
+    void Awake()
+    {
+        job = "test";
+    }
+
+    void Update()
+    {
+        print(job);
+    }
 }
