@@ -26,12 +26,6 @@ public class NPC_Informant_3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (gs.give_Cigaret_To_Guard == false)
-        {
-            SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
-            gs.caughtMurder = true;
-            sl.LoadNignt();
-        }
         gs = GameState.Instance;
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
@@ -85,6 +79,12 @@ public class NPC_Informant_3 : MonoBehaviour
 
     public void Kill()
     {
+        if (gs.give_Cigaret_To_Guard == false)
+        {
+            SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+            gs.caughtMurder = true;
+            sl.LoadNignt();
+        } 
         gs.kill_informant = true;
         Destroy(speech_bubble);
         sprite.color = new Color(1, 0, 0, 1);

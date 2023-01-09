@@ -26,10 +26,7 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
-        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
-        speech_bubble.SetActive(false);
-
-        if (gs.kill_gang_lackey)
+        if (gs.kill_gang_lackey) 
         {
             sprite.color = new Color(1f, 0, 0, 1);
             Destroy(speech_bubble);

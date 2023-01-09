@@ -17,6 +17,10 @@ public class Door : MonoBehaviour
 
     void Update()
     {
+        if (gs == null)
+        {
+            gs = GameState.Instance;
+        }
         if (gs.job == location)
         {
             open = true;
