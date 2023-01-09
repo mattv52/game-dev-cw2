@@ -32,6 +32,7 @@ public class SceneLoader : MonoBehaviour
     public void reset()
     {
         gs.reset();
+        Time.timeScale = 1;
         // player.SetActive(false);
         // UI.SetActive(false);
         SceneManager.LoadScene(0);

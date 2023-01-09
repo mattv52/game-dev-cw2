@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameState : MonoBehaviour
 {
     public static GameState Instance;
@@ -46,8 +47,6 @@ public class GameState : MonoBehaviour
     //
     public bool attack_gang_lackey = false;
     public bool kill_gang_lackey = false;
-
-
 
     void Awake()
     {

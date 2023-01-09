@@ -24,6 +24,7 @@ public class NextScene : MonoBehaviour
     {
         string text = $"Eating this now will progress time to {next_scene}.<br>Are you sure you want to continue?";
 
+        Time.timeScale = 0;
         ConfirmPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = text;
         ConfirmPanel.SetActive(true);
     }
@@ -35,6 +36,7 @@ public class NextScene : MonoBehaviour
 
     public void next()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(next_scene);
     }
 

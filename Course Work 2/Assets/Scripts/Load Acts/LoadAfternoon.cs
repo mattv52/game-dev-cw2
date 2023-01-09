@@ -10,6 +10,7 @@ public class LoadAfternoon : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        Time.timeScale = 0;
     }
 
 
@@ -17,5 +18,6 @@ public class LoadAfternoon : MonoBehaviour
     {
         gs.job = j;
         jobPanel.SetActive(false);
+        Time.timeScale = 1;
     }
 }
