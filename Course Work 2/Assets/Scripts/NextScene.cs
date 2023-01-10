@@ -24,7 +24,7 @@ public class NextScene : MonoBehaviour
     public void eat()
     {
         string text = $"Eating this now will progress time to {next_scene}.<br>Are you sure you want to continue?";
-        print("EAT");
+
         Time.timeScale = 0;
         ConfirmPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = text;
         ConfirmPanel.SetActive(true);
@@ -40,6 +40,7 @@ public class NextScene : MonoBehaviour
         sound.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(next_scene);
+        Destroy(gameObject);
     }
 
 }
