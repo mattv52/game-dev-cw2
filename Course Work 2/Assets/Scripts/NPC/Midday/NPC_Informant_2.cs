@@ -54,7 +54,7 @@ public class NPC_Informant_2 : MonoBehaviour
         }
         else
         {
-            Destroy(accept_button);
+            accept_button.SetActive(false);
         }
     }
 
@@ -64,14 +64,16 @@ public class NPC_Informant_2 : MonoBehaviour
         {
             speech_bubble.SetActive(true);
             kill_button.SetActive(false);
-            accept_button.SetActive(false);
+            if (accept_button != null)
+                accept_button.SetActive(false);
             print(text);
             speech_bubble_text.SetText(speeches[text]);
             updateTextBubble();
 
             if (gs.gang_break_out)
             {
-                accept_button.SetActive(true);
+                if (accept_button != null)
+                    accept_button.SetActive(true);
             }
 
             foreach (GameObject slot in player_inventory.slots)

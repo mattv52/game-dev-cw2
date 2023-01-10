@@ -30,6 +30,7 @@ public class NPC_Gang_Lackey : MonoBehaviour
     {
         gs = GameState.Instance;
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         sound = GetComponent<AudioSource>();
         speech_bubble.SetActive(false);
     }

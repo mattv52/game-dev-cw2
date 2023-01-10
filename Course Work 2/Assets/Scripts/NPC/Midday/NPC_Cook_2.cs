@@ -30,11 +30,13 @@ public class NPC_Cook_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        print("start cook");
         gs = GameState.Instance;
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
+        print(speech_bubble.activeSelf);
         if (gs.kill_cook)
         {
             sprite.color = new Color(1f, 0, 0, 1);
@@ -51,11 +53,12 @@ public class NPC_Cook_2 : MonoBehaviour
             transform.position = new Vector3(33f, -10.15f, -1.0f);
         }
         
+        print(speech_bubble.activeSelf);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (speeches.Length > 0)
+        if (collision.CompareTag("Player"))
         {
             speech_bubble.SetActive(true);
             kill_button.SetActive(false);
