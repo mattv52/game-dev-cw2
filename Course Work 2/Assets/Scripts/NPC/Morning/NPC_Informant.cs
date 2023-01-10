@@ -24,9 +24,9 @@ public class NPC_Informant : MonoBehaviour
     private SceneLoader sl;
 
     private string[] speeches = {"Might be able to help you with that note for a cigie",
-        "I saw that big guy in yard<br>hanging round your cell last night", "Oww, ok, ill tell you<br>Saw that big guy outside hanging<br>round your cell last night", "Why would you do this"};
+        "I saw that big guy in yard<br>hanging round your cell last night", "Oww, ok, ill tell you<br>Saw that big guy outside hanging<br>round your cell last night", "Why would you do this", "Rumour has it there was<br>a note left in your room?"};
     private System.Random rnd = new System.Random();
-    private int text = 0;
+    private int text = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +41,6 @@ public class NPC_Informant : MonoBehaviour
     {
         if (speeches.Length > 0)
         {
-            speech_bubble.SetActive(true);
-            kill_button.SetActive(false);
-            print(text);
-            speech_bubble_text.SetText(speeches[text]);
-            updateTextBubble();
-
             foreach (GameObject slot in player_inventory.slots)
             {
                 if (slot.gameObject.transform.childCount > 0)
@@ -55,9 +49,16 @@ public class NPC_Informant : MonoBehaviour
                     if (item.tag == "Shive")
                     {
                         kill_button.SetActive(true);
-                    }
+                    } else if (item.tag == "Note")
+                        text = 0;
                 }
             }
+            speech_bubble.SetActive(true);
+            kill_button.SetActive(false);
+            print(text);
+            speech_bubble_text.SetText(speeches[text]);
+            updateTextBubble();
+
         }
 
     }
