@@ -338,7 +338,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 200
   m_Sprite: {fileID: 21300000, guid: 59cd6a4370cf51614982f97d577a6abe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -457,8 +457,8 @@ MonoBehaviour:
   kill_button: {fileID: 4688628850433472408}
   accept_button: {fileID: 8207440202353711391}
   item_wanted: Pliers
-  player_inventory: {fileID: 0}
   blood_splater: {fileID: 4934686331721926415, guid: 7bbbd46f6c3290045aede6e430e4f9c8, type: 3}
+  clips: []
 --- !u!1 &8290077176498983563
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +621,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 201
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8290077176526840705
 MonoBehaviour:
