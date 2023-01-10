@@ -50,7 +50,10 @@ public class NPC_Informant : MonoBehaviour
                     {
                         kill_button.SetActive(true);
                     } else if (item.tag == "Note")
-                        text = 0;
+                        if (gs.give_Cigaret_To_Informant == false)
+                        {
+                            text = 0;
+                        }
                 }
             }
             speech_bubble.SetActive(true);
