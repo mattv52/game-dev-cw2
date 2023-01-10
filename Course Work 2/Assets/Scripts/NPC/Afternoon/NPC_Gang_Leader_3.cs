@@ -18,7 +18,9 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
 
     private Inventory player_inventory;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
         
     private string[] speeches = {"What you want", "Think you'll get away with this", "Your not that useful are you", "We're leaving<br>Join us if you want"};
@@ -29,6 +31,7 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
@@ -92,6 +95,9 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         if (gs.give_Cigaret_To_Guard == false)
         {
             SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
@@ -107,6 +113,9 @@ public class NPC_Gang_Leader_3 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         gs.attack_gang_leader = true;
         text = 2;
         sprite.color = new Color(0.5f, 0, 0, 1);

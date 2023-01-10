@@ -16,7 +16,9 @@ public class NPC_Cook_2 : MonoBehaviour
 
     private Inventory player_inventory;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
     private SceneLoader sl;
 
@@ -30,6 +32,7 @@ public class NPC_Cook_2 : MonoBehaviour
     {
         gs = GameState.Instance;
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
         if (gs.kill_cook)
@@ -84,6 +87,9 @@ public class NPC_Cook_2 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.caughtMurder = true;
         sl.LoadNignt();
@@ -94,6 +100,9 @@ public class NPC_Cook_2 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         gs.attack_cook = true;
         if (gs.give_Cigaret_To_Cook)
         {

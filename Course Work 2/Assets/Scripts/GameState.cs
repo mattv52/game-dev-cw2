@@ -67,6 +67,7 @@ public class GameState : MonoBehaviour
     {
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         Destroy(GameObject.FindGameObjectWithTag("UI"));
+        Destroy(GameObject.FindGameObjectWithTag("Audio"));
 
         cell_Mate_Trade_Shive = false;
         warden_Wants_More_Proof = false;

@@ -33,8 +33,6 @@ public class SceneLoader : MonoBehaviour
     {
         gs.reset();
         Time.timeScale = 1;
-        // player.SetActive(false);
-        // UI.SetActive(false);
         SceneManager.LoadScene(0);
     }
 
@@ -65,6 +63,6 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadNignt()
     {
-         SceneManager.LoadScene(4);
+         SceneManager.LoadScene("Night");
     }
 }

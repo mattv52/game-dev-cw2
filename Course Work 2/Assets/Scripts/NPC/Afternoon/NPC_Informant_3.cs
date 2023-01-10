@@ -16,7 +16,9 @@ public class NPC_Informant_3 : MonoBehaviour
 
     private Inventory player_inventory;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
         
     private string[] speeches = {"Hi", "Watch it", "Good Luck", "Leave me alone"};
@@ -27,6 +29,7 @@ public class NPC_Informant_3 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
@@ -79,6 +82,9 @@ public class NPC_Informant_3 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         if (gs.give_Cigaret_To_Guard == false)
         {
             SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
@@ -94,6 +100,9 @@ public class NPC_Informant_3 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
 
         gs.attack_informant = true;
         text = 1;

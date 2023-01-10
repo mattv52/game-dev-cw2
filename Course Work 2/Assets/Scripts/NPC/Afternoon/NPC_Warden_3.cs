@@ -17,9 +17,11 @@ public class NPC_Warden_3 : MonoBehaviour
     private Inventory player_inventory;
     public string item_wanted;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
-        
+
     private string[] speeches = {"Why are you in my office?","Leave me alone",
         "You know im the warden right?", "Do you have anything?", "This is good<br>You'll be fine.<br>I can take care of this"};
     private System.Random rnd = new System.Random();
@@ -29,6 +31,7 @@ public class NPC_Warden_3 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sound = GetComponent<AudioSource>();   
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
@@ -86,6 +89,9 @@ public class NPC_Warden_3 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.attackWarden = true;
         sl.LoadNignt();
@@ -99,6 +105,9 @@ public class NPC_Warden_3 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.attackWarden = true;
         sl.LoadNignt();

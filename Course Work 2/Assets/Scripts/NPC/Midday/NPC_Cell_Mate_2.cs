@@ -17,7 +17,9 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     private Inventory player_inventory;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
     private SceneLoader sl;
 
@@ -30,6 +32,7 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
     {
         gs = GameState.Instance;
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 
         speech_bubble.SetActive(false);
@@ -88,7 +91,9 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Kill()
     {
-
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.caughtMurder = true;
         sl.LoadNignt();
@@ -102,6 +107,9 @@ public class NPC_Cell_Mate_2 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         gs.attack_cellmate = true;
         sprite.color = new Color(0.5f, 0, 0, 1);
         if (text == 1)

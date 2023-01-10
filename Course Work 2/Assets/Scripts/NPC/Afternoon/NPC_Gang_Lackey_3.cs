@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using TMPro;
 
@@ -17,7 +17,9 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
     public GameObject blood_splater;
 
     private GameState gs;
-        
+    public AudioClip[] clips;
+
+    private AudioSource sound;
     private string[] speeches = {"What you looking at","I'll get you for this", "Lets get going"};
     private System.Random rnd = new System.Random();
     private int text = 0;
@@ -26,6 +28,7 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sound = GetComponent<AudioSource>();        
         if (gs.kill_gang_lackey) 
         {
             sprite.color = new Color(1f, 0, 0, 1);
@@ -78,6 +81,9 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         if (gs.give_Cigaret_To_Guard == false)
         {
             SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
@@ -101,6 +107,9 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         gs.attack_gang_lackey = true;
         text = 1;
         sprite.color = new Color(0.5f, 0, 0, 1);

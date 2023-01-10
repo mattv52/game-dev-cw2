@@ -17,7 +17,9 @@ public class NPC_Guard : MonoBehaviour
     public Inventory player_inventory;
     public string item_wanted;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
     private SceneLoader sl;
 
@@ -31,6 +33,7 @@ public class NPC_Guard : MonoBehaviour
     {
         gs = GameState.Instance;
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        sound = GetComponent<AudioSource>();
         speech_bubble.SetActive(false);
     }
 
@@ -66,6 +69,9 @@ public class NPC_Guard : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+
         gs.attackGuard = true;
         gs.kill_guard = true;
         Destroy(speech_bubble);
@@ -77,6 +83,9 @@ public class NPC_Guard : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+
         gs.attackGuard = true;
         sl.LoadNignt();
         gs.attack_guard = true;

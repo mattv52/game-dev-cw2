@@ -17,9 +17,12 @@ public class NPC_Guard_3 : MonoBehaviour
     private Inventory player_inventory;
     public string item_wanted;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
         
+    private System.Random rnd = new System.Random();
     private string[] speeches = {"Move along", "Try me", "Thanks for the smoke", "Theres nothing here<br>quit wasting my time"};
     private int text = 0;
 
@@ -27,6 +30,7 @@ public class NPC_Guard_3 : MonoBehaviour
     void Start()
     {
         gs = GameState.Instance;
+        sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
 
@@ -86,6 +90,9 @@ public class NPC_Guard_3 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.attackGuard = true;
         sl.LoadNignt();
@@ -98,6 +105,9 @@ public class NPC_Guard_3 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         SceneLoader sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.attackGuard = true;
         sl.LoadNignt();

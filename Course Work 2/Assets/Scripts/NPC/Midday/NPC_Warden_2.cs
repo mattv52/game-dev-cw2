@@ -17,7 +17,9 @@ public class NPC_Warden_2 : MonoBehaviour
     public Inventory player_inventory;
     public string item_wanted;
     public GameObject blood_splater;
+    public AudioClip[] clips;
 
+    private AudioSource sound;
     private GameState gs;
     private SceneLoader sl;
 
@@ -31,6 +33,7 @@ public class NPC_Warden_2 : MonoBehaviour
     {
         gs = GameState.Instance;
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
+        sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
     }
@@ -67,6 +70,9 @@ public class NPC_Warden_2 : MonoBehaviour
 
     public void Kill()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.attackWarden = true;
         sl.LoadNignt();
@@ -78,6 +84,9 @@ public class NPC_Warden_2 : MonoBehaviour
 
     public void Attack()
     {
+        sound.clip = clips[rnd.Next(4)];
+        sound.Play();
+        
         sl = GameObject.FindGameObjectWithTag("SceneLoader").GetComponent<SceneLoader>();
         gs.attackWarden = true;
         sl.LoadNignt();

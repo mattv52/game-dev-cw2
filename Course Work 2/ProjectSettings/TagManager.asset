@@ -16,6 +16,7 @@ TagManager:
   - Disc
   - UI
   - SceneLoader
+  - Audio
   layers:
   - Default
   - TransparentFX
