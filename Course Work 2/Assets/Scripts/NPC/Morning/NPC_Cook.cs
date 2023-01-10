@@ -85,6 +85,7 @@ public class NPC_Cook : MonoBehaviour
     {
         sound.clip = clips[rnd.Next(4)];
         sound.Play();
+        sprite.color = new Color(0.5f, 0, 0, 1);
 
         gs.attack_cook = true;
         if (text == 1)

@@ -90,7 +90,7 @@ public class NPC_Informant : MonoBehaviour
     {
         sound.clip = clips[rnd.Next(4)];
         sound.Play();
-
+        sprite.color = new Color(0.5f, 0, 0, 1);
         gs.attack_informant = true;
         if (text == 1)
         {

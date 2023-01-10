@@ -46,6 +46,14 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
                 transform.position = new Vector3(30.07f, -10.9f, -1.0f);
             }
         }
+        gs = GameState.Instance;
+        player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+        speech_bubble.SetActive(false);
+        if (gs.attack_gang_lackey == true)
+        {
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            text = 1;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -63,6 +71,7 @@ public class NPC_Gang_Lackey_3 : MonoBehaviour
                 if (slot.gameObject.transform.childCount > 0)
                 {
                     GameObject item = slot.gameObject.transform.GetChild(0).gameObject;
+                    print(item.tag);
                     if (item.tag == "Shive")
                     {
                         kill_button.SetActive(true);

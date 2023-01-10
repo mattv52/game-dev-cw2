@@ -33,6 +33,11 @@ public class NPC_Gang_Lackey : MonoBehaviour
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         sound = GetComponent<AudioSource>();
         speech_bubble.SetActive(false);
+        if (gs.attack_gang_lackey == true)
+        {
+            sprite.color = new Color(0.5f, 0, 0, 1);
+            text = 1;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -82,6 +87,7 @@ public class NPC_Gang_Lackey : MonoBehaviour
 
     public void Attack()
     {
+        sprite.color = new Color(0.5f, 0, 0, 1);
         sound.clip = clips[rnd.Next(4)];
         sound.Play();
 
