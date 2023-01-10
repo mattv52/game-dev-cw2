@@ -9,6 +9,7 @@ public class NextScene : MonoBehaviour
     public GameObject ConfirmPanel;
     public GameObject interactive; 
     public string next_scene;
+    public AudioSource sound;
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -23,7 +24,7 @@ public class NextScene : MonoBehaviour
     public void eat()
     {
         string text = $"Eating this now will progress time to {next_scene}.<br>Are you sure you want to continue?";
-
+        print("EAT");
         Time.timeScale = 0;
         ConfirmPanel.transform.GetChild(0).GetComponent<TMP_Text>().text = text;
         ConfirmPanel.SetActive(true);
@@ -36,6 +37,7 @@ public class NextScene : MonoBehaviour
 
     public void next()
     {
+        sound.Play();
         Time.timeScale = 1;
         SceneManager.LoadScene(next_scene);
     }
