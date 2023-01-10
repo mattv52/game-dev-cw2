@@ -21,7 +21,8 @@ public class NPC_Guard_3 : MonoBehaviour
 
     private AudioSource sound;
     private GameState gs;
-        
+    public GameObject smoke;
+
     private System.Random rnd = new System.Random();
     private string[] speeches = {"Move along", "Try me", "Thanks for the smoke", "Theres nothing here<br>quit wasting my time"};
     private int text = 0;
@@ -33,6 +34,7 @@ public class NPC_Guard_3 : MonoBehaviour
         sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
+        smoke.SetActive(false);
 
         if (gs.kill_guard)
         {
@@ -55,6 +57,7 @@ public class NPC_Guard_3 : MonoBehaviour
         {
             text = 2;
             transform.position = new Vector3(48f, -13.3f, -1.0f);
+            smoke.SetActive(true);
         }
     }
 

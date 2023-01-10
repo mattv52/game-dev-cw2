@@ -17,6 +17,7 @@ public class NPC_Cook_2 : MonoBehaviour
     private Inventory player_inventory;
     public GameObject blood_splater;
     public AudioClip[] clips;
+    public GameObject smoke;
 
     private AudioSource sound;
     private GameState gs;
@@ -36,6 +37,7 @@ public class NPC_Cook_2 : MonoBehaviour
         sound = GetComponent<AudioSource>();
         player_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
         speech_bubble.SetActive(false);
+        smoke.SetActive(false);
         print(speech_bubble.activeSelf);
         if (gs.kill_cook)
         {
@@ -51,6 +53,7 @@ public class NPC_Cook_2 : MonoBehaviour
         {
             text = 2;
             transform.position = new Vector3(33f, -10.15f, -1.0f);
+            smoke.SetActive(true);
         }
         
         print(speech_bubble.activeSelf);
