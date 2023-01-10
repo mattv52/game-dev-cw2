@@ -10,6 +10,8 @@ public class NextScene : MonoBehaviour
     public GameObject interactive; 
     public string next_scene;
     public AudioSource sound;
+
+    private bool playing = false;
     
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -38,9 +40,20 @@ public class NextScene : MonoBehaviour
     public void next()
     {
         sound.Play();
-        Time.timeScale = 1;
-        SceneManager.LoadScene(next_scene);
-        Destroy(gameObject);
+        playing = true;
+    }
+
+    public void Update()
+    {
+        if (playing)
+        {
+            if (!GetComponent<AudioSource>().isPlaying)
+            {
+                Time.timeScale = 1;
+                SceneManager.LoadScene(next_scene);
+            }
+        }
+
     }
 
 }
