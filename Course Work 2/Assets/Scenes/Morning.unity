@@ -6731,6 +6731,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2018890426}
   - component: {fileID: 2018890427}
+  - component: {fileID: 2018890428}
   m_Layer: 0
   m_Name: SceneLoader
   m_TagString: SceneLoader
@@ -6769,6 +6770,18 @@ MonoBehaviour:
   infoPanel: {fileID: 2016917012}
   storyPanel: {fileID: 1017313690}
   icon: {fileID: 2147053411, guid: dc54d51b9c965b146afb8afc582b3bc2, type: 3}
+--- !u!114 &2018890428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018890424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54b5080b6d3cfd446acdeac8d509333b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2071699486
 GameObject:
   m_ObjectHideFlags: 0
